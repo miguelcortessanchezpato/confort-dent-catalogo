@@ -1,0 +1,1243 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Confort Dent · Tienda</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;1,9..144,400&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#1d1d1f; --ink2:#6e6e73; --ink3:#86868b; --line:#d2d2d7; --bg:#f5f5f7; --card:#fff;
+  --petrol:#0e5b6b; --petrol-d:#0a4552; --salvia:#9caf88; --link:#0a6b7e; --gold:#c9b48a;
+  --r:18px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display","Inter",Helvetica,Arial,sans-serif;color:var(--ink);background:#fff;-webkit-font-smoothing:antialiased;letter-spacing:-.01em}
+a{color:var(--link);text-decoration:none;cursor:pointer}
+a:hover{text-decoration:underline}
+button{font:inherit;cursor:pointer;border:none;background:none;color:inherit}
+input,select,textarea{font:inherit;color:inherit}
+img,svg{display:block}
+
+/* NAV */
+.gnav{position:sticky;top:0;z-index:50;background:rgba(251,251,253,.82);backdrop-filter:saturate(180%) blur(20px);-webkit-backdrop-filter:saturate(180%) blur(20px);border-bottom:1px solid rgba(0,0,0,.06)}
+.gnav-in{max-width:1024px;margin:0 auto;height:48px;display:flex;align-items:center;justify-content:space-between;padding:0 22px;gap:8px}
+.gnav a.nl{color:#1d1d1fcc;font-size:12.5px;font-weight:400;padding:0 8px;white-space:nowrap}
+.gnav a.nl:hover{color:var(--ink);text-decoration:none}
+.gnav a.nl.on{color:var(--ink);font-weight:500}
+.brand{display:flex;align-items:center;gap:8px;color:var(--ink)!important;font-weight:600;font-size:15px;letter-spacing:-.02em}
+.brand:hover{text-decoration:none!important}
+.navlinks{display:flex;align-items:center;flex:1;justify-content:center}
+.navicons{display:flex;gap:14px;align-items:center}
+.iconbtn{width:30px;height:30px;display:grid;place-items:center;border-radius:50%;position:relative;color:#1d1d1fcc}
+.iconbtn:hover{color:var(--ink)}
+.badge{position:absolute;bottom:2px;right:0;background:var(--ink);color:#fff;font-size:9.5px;font-weight:600;min-width:15px;height:15px;border-radius:8px;display:grid;place-items:center;padding:0 4px}
+.burger{display:none}
+@media (max-width:900px){.navlinks{display:none}.burger{display:grid}}
+.mnav{display:none;position:fixed;inset:48px 0 0 0;background:#fff;z-index:49;padding:24px 40px;overflow:auto}
+.mnav.open{display:block}
+.mnav a{display:block;font-size:26px;font-weight:600;color:var(--ink);padding:8px 0}
+
+.ribbon{background:var(--bg);text-align:center;font-size:13.5px;padding:12px 20px;color:var(--ink)}
+
+/* LAYOUT */
+.wrap{max-width:1180px;margin:0 auto;padding:0 22px}
+.narrow{max-width:980px;margin:0 auto;padding:0 22px}
+.sec{padding:64px 0}
+h1.big{font-size:clamp(40px,6vw,64px);font-weight:600;letter-spacing:-.025em;line-height:1.05}
+h2.h2{font-size:clamp(28px,4vw,44px);font-weight:600;letter-spacing:-.02em;line-height:1.1}
+.grey{color:var(--ink2)}
+.sub{font-size:clamp(19px,2vw,24px);font-weight:400;line-height:1.3}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:6px;background:var(--petrol);color:#fff;border-radius:980px;padding:11px 22px;font-size:16px;font-weight:400;transition:background .2s}
+.btn:hover{background:var(--petrol-d);text-decoration:none}
+.btn.sm{padding:8px 16px;font-size:14px}
+.btn.ghost{background:transparent;color:var(--link);border:1px solid var(--link)}
+.btn.ghost:hover{background:var(--link);color:#fff}
+.btn.block{width:100%;padding:14px 22px;border-radius:12px;font-size:17px}
+.btn[disabled]{background:#c7c7cc;cursor:not-allowed}
+.lnk{font-size:17px}
+.lnk::after{content:" ›"}
+
+/* HERO */
+.hero{text-align:center;padding:56px 22px 0;overflow:hidden}
+.hero.dark{background:#000;color:#f5f5f7}
+.hero.dark .grey{color:#a1a1a6}
+.hero.light{background:var(--bg)}
+.hero .ctas{display:flex;gap:14px;justify-content:center;margin:20px 0 28px;flex-wrap:wrap}
+.hero .art{max-width:880px;margin:0 auto}
+.eyebrow{font-size:14px;font-weight:600;color:#bf8a3a;letter-spacing:0;margin-bottom:6px}
+.hero.dark .eyebrow{color:var(--gold)}
+.tiles{display:grid;grid-template-columns:1fr 1fr;gap:12px;padding:12px}
+.tile{border-radius:0;text-align:center;padding:52px 20px 0;overflow:hidden;min-height:560px;display:flex;flex-direction:column;align-items:center}
+.tile h3{font-size:clamp(28px,3.4vw,40px);font-weight:600;letter-spacing:-.02em}
+.tile p{font-size:19px;margin-top:6px}
+.tile .ctas{display:flex;gap:14px;justify-content:center;margin:16px 0 18px}
+.tile .art{margin-top:auto;width:100%;max-width:520px}
+@media (max-width:760px){.tiles{grid-template-columns:1fr}}
+
+/* STORE HEAD */
+.storehead{display:flex;justify-content:space-between;align-items:flex-end;gap:30px;padding:56px 0 30px;flex-wrap:wrap}
+.storehead h1{font-size:clamp(40px,5vw,56px);font-weight:600;letter-spacing:-.025em;line-height:1.05}
+.storehead h1 span{color:var(--ink2)}
+.storehead .help{font-size:14px;line-height:1.5;max-width:260px}
+.cats{display:flex;gap:22px;overflow-x:auto;padding:6px 0 26px;scrollbar-width:none}
+.cats::-webkit-scrollbar{display:none}
+.cat{flex:0 0 auto;width:112px;text-align:center;color:var(--ink);font-size:14px;font-weight:500}
+.cat:hover{text-decoration:none}
+.cat .ci{width:112px;height:80px;display:grid;place-items:center;margin-bottom:8px}
+.cat:hover .ci{transform:scale(1.04)}
+.cat .ci{transition:transform .25s}
+.rowtitle{font-size:28px;font-weight:600;letter-spacing:-.02em;margin:34px 0 18px}
+.rowtitle span{color:var(--ink2)}
+.scroller{display:flex;gap:20px;overflow-x:auto;padding:4px 22px 30px;margin:0 -22px;scroll-snap-type:x mandatory;scrollbar-width:none}
+.scroller::-webkit-scrollbar{display:none}
+.scard{flex:0 0 auto;scroll-snap-align:start;width:400px;height:500px;border-radius:var(--r);background:#fff;box-shadow:2px 4px 12px rgba(0,0,0,.08);padding:28px;display:flex;flex-direction:column;cursor:pointer;transition:transform .3s, box-shadow .3s;color:var(--ink)}
+.scard:hover{transform:scale(1.015);box-shadow:2px 4px 16px rgba(0,0,0,.16)}
+.scard.dark{background:#000;color:#f5f5f7}
+.scard .kick{font-size:12px;font-weight:600;color:var(--gold);text-transform:uppercase;letter-spacing:.02em}
+.scard.dark .kick{color:var(--gold)}
+.scard h4{font-size:26px;font-weight:600;letter-spacing:-.02em;line-height:1.12;margin-top:6px}
+.scard p{font-size:15px;margin-top:8px;color:var(--ink2)}
+.scard.dark p{color:#a1a1a6}
+.scard .art{margin-top:auto}
+.scard.sm{width:300px;height:420px}
+.why{flex:0 0 auto;width:300px;border-radius:var(--r);background:#fff;box-shadow:2px 4px 12px rgba(0,0,0,.08);padding:28px;scroll-snap-align:start;min-height:220px}
+.why .ico{width:44px;height:44px;margin-bottom:16px}
+.why h5{font-size:21px;font-weight:600;letter-spacing:-.01em;line-height:1.2}
+.why p{font-size:14.5px;color:var(--ink2);margin-top:8px;line-height:1.45}
+.bgsoft{background:var(--bg)}
+
+/* GRID / PRODUCT CARD */
+.pgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:20px}
+.pcard{background:#fff;border-radius:var(--r);padding:22px 22px 24px;display:flex;flex-direction:column;cursor:pointer;transition:box-shadow .3s, transform .3s;box-shadow:0 1px 3px rgba(0,0,0,.05);color:var(--ink);position:relative}
+.pcard:hover{box-shadow:0 8px 28px rgba(0,0,0,.12);text-decoration:none;transform:translateY(-2px)}
+.pcard .img{aspect-ratio:4/3;display:grid;place-items:center;margin-bottom:14px}
+.pcard .img svg{width:100%;height:100%}
+.pcard .tag{font-size:12px;font-weight:600;color:var(--gold);min-height:16px}
+.pcard h4{font-size:17px;font-weight:600;letter-spacing:-.01em;line-height:1.25;margin-top:4px}
+.pcard .d{font-size:13.5px;color:var(--ink2);margin-top:6px;line-height:1.4;flex:1}
+.pcard .pr{font-size:15px;margin-top:12px}
+.pcard .sw{display:flex;gap:6px;margin-top:10px}
+.dot{width:12px;height:12px;border-radius:50%;box-shadow:inset 0 0 0 1px rgba(0,0,0,.15)}
+.chips{display:flex;gap:8px;flex-wrap:wrap;margin:6px 0 24px}
+.chip{padding:8px 16px;border-radius:980px;background:#fff;border:1px solid var(--line);font-size:14px}
+.chip.on{background:var(--ink);color:#fff;border-color:var(--ink)}
+.toolbar{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap}
+.sel{appearance:none;border:1px solid var(--line);border-radius:10px;padding:9px 34px 9px 12px;background:#fff url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M1 1l4 4 4-4' stroke='%2386868b' fill='none' stroke-width='1.5'/%3E%3C/svg%3E") no-repeat right 12px center;font-size:14px}
+
+/* PRODUCT PAGE */
+.pp{display:grid;grid-template-columns:1.25fr 1fr;gap:56px;padding:40px 0 70px}
+@media (max-width:900px){.pp{grid-template-columns:1fr;gap:24px}}
+.gal{position:sticky;top:70px;align-self:start}
+.gal .main{background:var(--bg);border-radius:var(--r);aspect-ratio:4/3;display:grid;place-items:center;padding:20px}
+.gal .main svg{width:100%;height:100%}
+.thumbs{display:flex;gap:10px;margin-top:12px}
+.thumb{width:72px;height:56px;border-radius:10px;background:var(--bg);border:2px solid transparent;display:grid;place-items:center;padding:4px}
+.thumb.on{border-color:var(--link)}
+.thumb svg{width:100%;height:100%}
+.pp h1{font-size:40px;font-weight:600;letter-spacing:-.025em;line-height:1.1}
+.pp .price{font-size:17px;margin-top:10px}
+.pp .lead{font-size:17px;line-height:1.5;color:var(--ink2);margin-top:16px}
+.opt{margin-top:28px}
+.opt h6{font-size:17px;font-weight:600;margin-bottom:12px}
+.opt h6 span{font-weight:400;color:var(--ink2)}
+.swatches{display:flex;gap:12px;flex-wrap:wrap}
+.swb{width:34px;height:34px;border-radius:50%;box-shadow:inset 0 0 0 1px rgba(0,0,0,.12);position:relative}
+.swb.on::after{content:"";position:absolute;inset:-5px;border-radius:50%;border:2px solid var(--link)}
+.choices{display:grid;gap:12px}
+.choice{border:1px solid var(--line);border-radius:12px;padding:16px 18px;display:flex;justify-content:space-between;align-items:center;gap:14px;text-align:left;background:#fff;transition:border-color .15s}
+.choice:hover{border-color:#86868b}
+.choice.on{border:2px solid var(--link);padding:15px 17px}
+.choice b{font-size:16px;font-weight:600;display:block}
+.choice small{font-size:13px;color:var(--ink2);display:block;margin-top:3px;line-height:1.35}
+.choice .cp{font-size:14px;white-space:nowrap}
+.choices.c2{grid-template-columns:1fr 1fr}
+.qty{display:inline-flex;align-items:center;border:1px solid var(--line);border-radius:10px;overflow:hidden}
+.qty button{width:38px;height:38px;font-size:18px}
+.qty button:hover{background:var(--bg)}
+.qty span{min-width:34px;text-align:center;font-size:15px}
+.buybox{margin-top:30px;padding:22px;border-radius:var(--r);background:var(--bg)}
+.buybox .row{display:flex;justify-content:space-between;align-items:center;gap:12px}
+.buybox .tot{font-size:24px;font-weight:600}
+.perks{display:grid;gap:12px;margin-top:20px;font-size:14px}
+.perks div{display:flex;gap:10px;align-items:flex-start}
+.perks svg{flex:0 0 auto;margin-top:1px}
+.acc{border-top:1px solid var(--line);margin-top:40px}
+.acc details{border-bottom:1px solid var(--line)}
+.acc summary{list-style:none;cursor:pointer;padding:18px 0;font-size:19px;font-weight:600;display:flex;justify-content:space-between}
+.acc summary::-webkit-details-marker{display:none}
+.acc summary::after{content:"+";font-weight:300;font-size:24px;line-height:1;color:var(--ink2)}
+.acc details[open] summary::after{content:"–"}
+.acc .ab{padding:0 0 20px;font-size:15px;line-height:1.55;color:#333}
+.spec{display:grid;grid-template-columns:180px 1fr;gap:8px 18px;font-size:14.5px}
+.spec dt{color:var(--ink2)}
+.input{width:100%;border:1px solid var(--line);border-radius:12px;padding:14px 16px;font-size:16px;background:#fff;outline:none;transition:border-color .15s, box-shadow .15s}
+.input:focus{border-color:var(--link);box-shadow:0 0 0 4px rgba(10,107,126,.15)}
+.input.err{border-color:#e30000;background:#fff5f5}
+.errmsg{color:#e30000;font-size:12.5px;margin-top:5px}
+label.lab{display:block;font-size:13px;color:var(--ink2);margin:0 0 6px 2px}
+.formgrid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.formgrid .full{grid-column:1/-1}
+@media (max-width:640px){.formgrid{grid-template-columns:1fr}.choices.c2{grid-template-columns:1fr}}
+
+/* CONFIGURATOR */
+.cfg{display:grid;grid-template-columns:1.4fr 1fr;gap:44px;padding:30px 0 80px}
+@media (max-width:960px){.cfg{grid-template-columns:1fr}}
+.cfg .stage{position:sticky;top:64px;align-self:start;background:radial-gradient(ellipse at 50% 40%,#fff 0%,#eef0f1 70%);border-radius:24px;padding:20px;aspect-ratio:4/3;display:grid;place-items:center}
+.cfg .stage.dark{background:radial-gradient(ellipse at 50% 40%,#2a3236 0%,#0b0d0e 75%)}
+.cfg .stage svg{width:100%;height:100%}
+.stagebar{display:flex;justify-content:center;gap:10px;margin-top:12px}
+.step-h{font-size:24px;font-weight:600;letter-spacing:-.015em;margin:34px 0 4px}
+.step-h:first-child{margin-top:0}
+.step-p{font-size:14px;color:var(--ink2);margin-bottom:14px}
+.summary{position:sticky;bottom:0;background:rgba(255,255,255,.9);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-top:1px solid var(--line);z-index:30}
+.summary .in{max-width:1180px;margin:0 auto;padding:14px 22px;display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap}
+.summary .t{font-size:22px;font-weight:600}
+.summary .m{font-size:13px;color:var(--ink2)}
+.check{display:flex;align-items:center;gap:12px;border:1px solid var(--line);border-radius:12px;padding:14px 16px;cursor:pointer;background:#fff}
+.check.on{border:2px solid var(--link);padding:13px 15px}
+.check .box{width:22px;height:22px;border-radius:6px;border:1.5px solid #b0b0b5;display:grid;place-items:center;flex:0 0 auto}
+.check.on .box{background:var(--link);border-color:var(--link)}
+.check .box svg{opacity:0}
+.check.on .box svg{opacity:1}
+.check .txt{flex:1}
+.check b{font-weight:600;font-size:15px}
+.check small{display:block;font-size:12.5px;color:var(--ink2)}
+.toolgrid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+@media (max-width:640px){.toolgrid{grid-template-columns:1fr}}
+.slotinfo{font-size:13.5px;color:var(--ink2);margin-top:10px}
+
+/* BAG */
+.bagi{display:grid;grid-template-columns:150px 1fr auto;gap:28px;padding:30px 0;border-bottom:1px solid var(--line)}
+.bagi .im{background:var(--bg);border-radius:14px;aspect-ratio:4/3;display:grid;place-items:center;padding:8px}
+.bagi .im svg{width:100%;height:100%}
+.bagi h4{font-size:21px;font-weight:600;letter-spacing:-.015em}
+.bagi ul{list-style:none;margin-top:8px;font-size:13.5px;color:var(--ink2);line-height:1.6}
+.bagi .rt{text-align:right;display:flex;flex-direction:column;align-items:flex-end;gap:12px}
+.bagi .rt .p{font-size:21px;font-weight:600}
+@media (max-width:640px){.bagi{grid-template-columns:90px 1fr}.bagi .rt{grid-column:1/-1;flex-direction:row;justify-content:space-between;align-items:center}}
+.totals{margin-left:auto;max-width:520px;padding:26px 0}
+.totals .r{display:flex;justify-content:space-between;font-size:16px;padding:6px 0}
+.totals .r.t{font-size:24px;font-weight:600;border-top:1px solid var(--line);margin-top:12px;padding-top:18px}
+.promo{display:flex;gap:10px;margin-top:10px}
+.empty{text-align:center;padding:90px 20px}
+
+/* CHECKOUT */
+.co{display:grid;grid-template-columns:1.3fr 1fr;gap:56px;padding:20px 0 80px}
+@media (max-width:960px){.co{grid-template-columns:1fr}}
+.steps{display:flex;gap:6px;margin:30px 0 20px;font-size:13px;color:var(--ink3);flex-wrap:wrap}
+.steps span.on{color:var(--ink);font-weight:600}
+.steps span.done{color:var(--link)}
+.cobox{background:var(--bg);border-radius:var(--r);padding:24px;position:sticky;top:70px;align-self:start}
+.cobox .li{display:flex;gap:14px;align-items:center;padding:10px 0;border-bottom:1px solid #e5e5ea}
+.cobox .li .mi{width:64px;height:48px;background:#fff;border-radius:8px;display:grid;place-items:center;padding:3px;flex:0 0 auto}
+.cobox .li .mi svg{width:100%;height:100%}
+.cobox .li .n{flex:1;font-size:14px;line-height:1.3}
+.cobox .li .n small{color:var(--ink2)}
+.cobox .li .p{font-size:14px;font-weight:500}
+.cohead{font-size:28px;font-weight:600;letter-spacing:-.02em;margin-bottom:22px}
+.slots{display:grid;grid-template-columns:repeat(auto-fill,minmax(130px,1fr));gap:10px}
+.slot{border:1px solid var(--line);border-radius:12px;padding:12px;text-align:center;background:#fff;font-size:14px}
+.slot b{display:block;font-size:20px;font-weight:600}
+.slot.on{border:2px solid var(--link);padding:11px}
+.ok{text-align:center;padding:60px 0 20px}
+.ok .ring{width:84px;height:84px;margin:0 auto 22px;border-radius:50%;background:#e8f3ef;display:grid;place-items:center}
+.timeline{display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin:44px 0;position:relative}
+.timeline::before{content:"";position:absolute;top:13px;left:12.5%;right:12.5%;height:2px;background:var(--line)}
+.tl{text-align:center;position:relative;font-size:14px;padding:0 6px}
+.tl .c{width:28px;height:28px;border-radius:50%;background:#fff;border:2px solid var(--line);margin:0 auto 10px;display:grid;place-items:center}
+.tl.done .c{background:var(--link);border-color:var(--link)}
+.tl small{display:block;color:var(--ink2);font-size:12.5px;margin-top:3px}
+.note{background:var(--bg);border-radius:14px;padding:16px 18px;font-size:14px;line-height:1.5;color:#333}
+
+/* COMPARE */
+.cmp{display:grid;grid-template-columns:repeat(3,1fr);gap:30px;text-align:center}
+.cmp .col{padding:0 6px}
+.cmp h3{font-size:28px;font-weight:600;letter-spacing:-.02em;margin-top:18px}
+.cmp .pr{font-size:17px;margin:6px 0 16px}
+.cmp .f{border-top:1px solid var(--line);padding:16px 4px;font-size:14.5px;line-height:1.4;min-height:84px}
+.cmp .f small{display:block;color:var(--ink2);font-size:12.5px;margin-top:3px}
+@media (max-width:760px){.cmp{grid-template-columns:1fr;gap:50px}}
+
+/* SEARCH / MODAL / TOAST */
+.overlay{position:fixed;inset:0;background:rgba(232,232,237,.4);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);z-index:80;display:none}
+.overlay.open{display:block}
+.searchp{background:#fff;padding:40px 0 50px;box-shadow:0 10px 30px rgba(0,0,0,.06)}
+.searchp input{border:none;outline:none;font-size:30px;font-weight:600;width:100%;letter-spacing:-.02em}
+.searchp .res a{display:flex;align-items:center;gap:14px;padding:9px 0;color:var(--ink);font-size:15px}
+.searchp .res a:hover{color:var(--link);text-decoration:none}
+.searchp .res .mi{width:52px;height:40px;background:var(--bg);border-radius:8px;padding:3px}
+.searchp .res .mi svg{width:100%;height:100%}
+.searchp .hint{font-size:12px;color:var(--ink2);margin:22px 0 8px}
+.bagpop{position:fixed;top:56px;right:max(16px,calc(50% - 500px));width:360px;background:#fff;border-radius:18px;box-shadow:0 10px 40px rgba(0,0,0,.18);z-index:90;padding:24px;display:none}
+.bagpop.open{display:block;animation:pop .25s ease}
+@keyframes pop{from{opacity:0;transform:translateY(-8px)}to{opacity:1;transform:none}}
+.toast{position:fixed;left:50%;bottom:28px;transform:translateX(-50%) translateY(20px);background:#1d1d1f;color:#fff;border-radius:14px;padding:12px 18px;font-size:14px;z-index:95;opacity:0;transition:all .3s;pointer-events:none}
+.toast.on{opacity:1;transform:translateX(-50%) translateY(0)}
+
+footer{background:var(--bg);font-size:12px;color:var(--ink2);padding:30px 0 40px;margin-top:0}
+footer .cols{display:grid;grid-template-columns:repeat(5,1fr);gap:20px;padding:20px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);margin:16px 0}
+footer h6{font-size:12px;font-weight:600;color:var(--ink);margin-bottom:10px}
+footer .cols a{display:block;color:#424245;margin-bottom:8px}
+footer .fine{line-height:1.6;padding-bottom:12px}
+@media (max-width:760px){footer .cols{grid-template-columns:1fr 1fr}}
+.fade-in{animation:fi .45s ease}
+@keyframes fi{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+.center{text-align:center}
+.mt8{margin-top:8px}.mt16{margin-top:16px}.mt24{margin-top:24px}.mt40{margin-top:40px}
+.pill{display:inline-block;background:#e8f3ef;color:#0b6b4f;font-size:12px;font-weight:600;border-radius:980px;padding:4px 10px}
+.strike{text-decoration:line-through;color:var(--ink3);margin-right:6px}
+.engr{font-size:12.5px;color:var(--ink2);margin-top:8px}
+.calendar{display:grid;grid-template-columns:repeat(7,1fr);gap:6px}
+.calendar button{border:1px solid var(--line);border-radius:10px;padding:10px 0;font-size:14px;background:#fff}
+.calendar button small{display:block;font-size:10.5px;color:var(--ink2)}
+.calendar button.on{border:2px solid var(--link);padding:9px 0}
+.calendar button[disabled]{opacity:.35;cursor:not-allowed}
+
+/* ===== Confort Dent identity ===== */
+:root{--ink:#14211f;--ink2:#5d6865;--ink3:#8a928f;--line:#e2dccf;--bg:#efe9df;--cream:#f8f4ec;--petrol:#0e4d5c;--petrol-d:#093842;--link:#0e5b6b;--gold:#b89b63;--r:6px}
+body{font-family:"DM Sans",system-ui,sans-serif;background:var(--cream);letter-spacing:0}
+.disp,.disp2,.disp3,.rowtitle,.cohead,.pp h1,.cmp h3,h1.big{font-family:"Fraunces",Georgia,serif;font-weight:400;letter-spacing:-.02em}
+.disp{font-size:clamp(42px,5.4vw,72px);line-height:1.02}
+.disp2{font-size:clamp(34px,4vw,52px);line-height:1.05}
+.disp3{font-size:clamp(26px,2.6vw,34px);line-height:1.1}
+em{font-style:italic;color:var(--petrol)}
+.dark em,.band em,.hero.dark em{color:#d9c08f}
+.kicker{font-size:11.5px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);margin-bottom:14px}
+.kicker.light{color:#d9c08f}
+.gnav{background:var(--cream);backdrop-filter:none;-webkit-backdrop-filter:none;border-bottom:1px solid var(--line)}
+.gnav-in{max-width:1240px;height:64px}
+.brand{font-family:"Fraunces",serif;font-size:21px;font-weight:500;letter-spacing:-.01em}
+.gnav a.nl{font-size:11.5px;letter-spacing:.11em;text-transform:uppercase;font-weight:500;color:var(--ink2);padding:0 10px}
+.gnav a.nl.on{color:var(--petrol);font-weight:600}
+.badge{background:var(--petrol)}
+.mnav{inset:64px 0 0 0;background:var(--cream)}
+.mnav a{font-family:"Fraunces",serif;font-weight:400}
+.ribbon{background:var(--petrol);color:#e9e2d3;display:flex;justify-content:center;gap:22px;font-size:12px;letter-spacing:.08em;text-transform:uppercase;padding:10px 20px}
+.ribbon a{color:#d9c08f}
+.btn{border-radius:4px;background:var(--petrol);padding:13px 26px;font-size:14.5px;font-weight:500;letter-spacing:.02em}
+.btn.ghost{border-color:var(--ink);color:var(--ink);background:transparent}
+.btn.ghost:hover{background:var(--ink);color:var(--cream)}
+.btn.light{background:#e9dcc0;color:var(--petrol-d)}
+.btn.light:hover{background:#fff}
+.btn.block{border-radius:4px}
+.wrap{max-width:1240px}
+/* hero split */
+.h-split{padding:56px 0 70px;background:linear-gradient(180deg,var(--cream),#f1ebe0)}
+.h-grid{display:grid;grid-template-columns:1fr 1.15fr;gap:40px;align-items:center}
+.h-lead{font-size:18px;line-height:1.6;color:var(--ink2);margin-top:22px;max-width:470px}
+.ctas-l{display:flex;gap:12px;margin-top:30px;flex-wrap:wrap}
+.stats{display:flex;gap:34px;margin-top:44px;padding-top:26px;border-top:1px solid var(--line)}
+.stats b{font-family:"Fraunces",serif;font-weight:400;font-size:40px;color:var(--petrol);display:block;line-height:1}
+.stats span{font-size:12.5px;color:var(--ink2);line-height:1.35;display:block;margin-top:6px}
+.h-art{position:relative}
+.h-plate{background:radial-gradient(ellipse at 45% 35%,#1d5866 0%,#0b2e36 70%);border-radius:220px 220px 10px 10px;padding:70px 26px 20px}
+.h-tag{position:absolute;left:-18px;bottom:40px;background:var(--cream);border:1px solid var(--line);padding:14px 20px;border-radius:4px}
+.h-tag span{display:block;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink2)}
+.h-tag b{font-family:"Fraunces",serif;font-weight:400;font-size:26px}
+@media (max-width:900px){.h-grid{grid-template-columns:1fr}.h-tag{left:10px}}
+.marquee{background:var(--ink);color:#e9e2d3;overflow:hidden;padding:16px 0;white-space:nowrap}
+.mq{display:inline-flex;gap:56px;animation:mq 30s linear infinite;font-family:"Fraunces",serif;font-size:22px;font-style:italic}
+.mq span{display:inline-flex;align-items:center;gap:14px}
+.mq i{width:9px;height:9px;border-radius:50%;display:inline-block}
+@keyframes mq{to{transform:translateX(-50%)}}
+.sechead{display:flex;justify-content:space-between;align-items:flex-end;gap:40px;margin-bottom:40px;flex-wrap:wrap}
+.sechead p{max-width:400px;color:var(--ink2);line-height:1.6;font-size:15.5px}
+.traygrid{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border-top:1px solid var(--line);border-left:1px solid var(--line)}
+.trayc{border-right:1px solid var(--line);border-bottom:1px solid var(--line);padding:26px;color:var(--ink);position:relative;transition:background .25s}
+.trayc:hover{background:#fff;text-decoration:none}
+.trayc .idx{font-family:"Fraunces",serif;font-size:15px;color:var(--gold)}
+.trayc .ta{max-width:300px;margin:0 auto}
+.trayc h4{font-family:"Fraunces",serif;font-weight:400;font-size:24px;margin-top:4px}
+.trayc.custom{background:#ece3d2}
+.tp{font-size:13px;letter-spacing:.06em;text-transform:uppercase;color:var(--petrol);font-weight:600;display:inline-block;margin-top:10px}
+@media (max-width:900px){.traygrid{grid-template-columns:1fr 1fr}}
+.band.dark{background:var(--petrol-d);color:#efe8da;padding:80px 0}
+.band-grid{display:grid;grid-template-columns:1.1fr 1fr;gap:60px;align-items:center}
+.band p{color:#b9c7c5;line-height:1.65;margin-top:18px;max-width:440px}
+@media (max-width:900px){.band-grid{grid-template-columns:1fr}}
+.duo{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.duo-c{padding:40px;color:var(--ink);border-radius:var(--r);display:flex;flex-direction:column;min-height:460px}
+.duo-c:hover{text-decoration:none}
+.duo-a{margin:auto auto 10px;max-width:340px;width:100%}
+@media (max-width:760px){.duo{grid-template-columns:1fr}}
+.sec.soft{background:var(--bg)}
+/* store / cards */
+.storehead{align-items:flex-end}
+.storehead h1{font-family:"Fraunces",serif;font-weight:400}
+.rowtitle{font-size:34px;margin:56px 0 22px;padding-top:26px;border-top:1px solid var(--line)}
+.cat{font-size:12px;letter-spacing:.08em;text-transform:uppercase;font-weight:500}
+.cat .ci{background:#fff;border:1px solid var(--line);border-radius:50%;width:104px;height:104px;margin:0 auto 10px;padding:14px}
+.scard{border-radius:var(--r);box-shadow:none;border:1px solid var(--line);background:#fff}
+.scard:hover{transform:none;box-shadow:0 18px 40px -20px rgba(14,77,92,.35)}
+.scard.dark{background:var(--petrol-d);border-color:var(--petrol-d)}
+.scard h4,.why h5{font-family:"Fraunces",serif;font-weight:400}
+.scard .kick{color:var(--gold);letter-spacing:.14em;font-size:11px}
+.why{border-radius:var(--r);box-shadow:none;border:1px solid var(--line)}
+.pcard{border-radius:var(--r);box-shadow:none;border:1px solid var(--line);background:#fff}
+.pcard:hover{transform:none;border-color:var(--petrol);box-shadow:0 18px 40px -24px rgba(14,77,92,.45)}
+.pcard .img{background:var(--cream);border-radius:4px;padding:10px}
+.pcard h4{font-family:"Fraunces",serif;font-weight:400;font-size:20px}
+.pcard .tag{color:var(--gold);letter-spacing:.12em;text-transform:uppercase;font-size:10.5px}
+.pcard .pr{font-weight:600;color:var(--petrol)}
+.chip{border-radius:4px;font-size:13px;background:transparent}
+.chip.on{background:var(--petrol);border-color:var(--petrol)}
+.sel{border-radius:4px}
+.gal .main,.thumb,.buybox,.cobox,.note,.bagi .im{background:#fff;border:1px solid var(--line);border-radius:var(--r)}
+.pp h1{font-size:44px}
+.choice,.check,.slot,.calendar button,.input,.qty{border-radius:4px}
+.choice.on,.check.on,.slot.on,.calendar button.on{border-color:var(--petrol)}
+.check.on .box{background:var(--petrol);border-color:var(--petrol)}
+.swb.on::after{border-color:var(--petrol)}
+.cfg .stage{border-radius:var(--r);background:radial-gradient(ellipse at 50% 40%,#fff 0%,#ece5d8 75%);border:1px solid var(--line)}
+.cfg .stage.dark{background:radial-gradient(ellipse at 50% 40%,#1d5866 0%,#0b2e36 75%)}
+.step-h{font-family:"Fraunces",serif;font-weight:400;font-size:28px}
+.summary{background:rgba(248,244,236,.95)}
+.summary .t{font-family:"Fraunces",serif;font-weight:400;font-size:28px}
+.totals .r.t{font-family:"Fraunces",serif;font-weight:400;font-size:30px}
+.bagi h4{font-family:"Fraunces",serif;font-weight:400;font-size:24px}
+.hero.dark{background:radial-gradient(ellipse at 50% 70%,#1d5866 0%,#071f25 70%)}
+.hero.light{background:var(--bg)}
+.hero h1.disp{margin-top:4px}
+.eyebrow{font-size:11.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--gold)}
+.tl.done .c{background:var(--petrol);border-color:var(--petrol)}
+.ok h1{font-family:"Fraunces",serif;font-weight:400}
+.toast{border-radius:4px;background:var(--petrol-d)}
+.bagpop{border-radius:var(--r);border:1px solid var(--line);background:var(--cream)}
+.searchp{background:var(--cream)}
+.searchp input{font-family:"Fraunces",serif;font-weight:400;background:transparent}
+footer{background:var(--ink);color:#9aa5a2}
+footer h6{color:#efe8da;letter-spacing:.12em;text-transform:uppercase;font-size:11px}
+footer .cols{border-color:#2c3a38}
+footer .cols a{color:#c6cfcc}
+.acc summary{font-family:"Fraunces",serif;font-weight:400;font-size:21px}
+</style>
+</head>
+<body>
+
+<nav class="gnav">
+  <div class="gnav-in">
+    <a class="brand" href="#inicio" aria-label="Confort Dent">
+      <svg width="22" height="22" viewBox="0 0 40 40"><rect x="1.5" y="1.5" width="37" height="37" rx="10" fill="none" stroke="#1d1d1f" stroke-width="2.4"/><path d="M11 13.5c0-2.5 1.8-4 4-4h10c2.2 0 4 1.5 4 4v3.2c0 .8-.2 1.4-.6 2L26 28.5c-.2.7-1.3.7-1.4 0l-1.6-7.5h-6l-1.6 7.5c-.1.7-1.2.7-1.4 0L11.6 18.7c-.4-.6-.6-1.2-.6-2z" fill="#1d1d1f"/></svg>
+      Confort Dent
+    </a>
+    <div class="navlinks">
+      <a class="nl" href="#tienda" data-n="tienda">Catálogo</a>
+      <a class="nl" href="#c-sillones" data-n="c-sillones">Sillones</a>
+      <a class="nl" href="#c-bandejas" data-n="c-bandejas">Bandejas</a>
+      <a class="nl" href="#c-rotatorios" data-n="c-rotatorios">Rotatorios</a>
+      <a class="nl" href="#c-fresas" data-n="c-fresas">Fresas</a>
+      <a class="nl" href="#c-accesorios" data-n="c-accesorios">Accesorios</a>
+      <a class="nl" href="#c-consumibles" data-n="c-consumibles">Consumibles</a>
+      <a class="nl" href="#reciclate" data-n="reciclate">Recíclate</a>
+      <a class="nl" href="#soporte" data-n="soporte">Soporte</a>
+    </div>
+    <div class="navicons">
+      <button class="iconbtn" id="searchBtn" aria-label="Buscar"><svg width="16" height="16" viewBox="0 0 16 16"><circle cx="6.8" cy="6.8" r="5.3" fill="none" stroke="currentColor" stroke-width="1.4"/><path d="M10.8 10.8L15 15" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg></button>
+      <button class="iconbtn" id="bagBtn" aria-label="Mi selección"><svg width="16" height="18" viewBox="0 0 16 18"><path d="M2 5.5h12l-.8 11H2.8z" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round"/><path d="M5 7V4.5a3 3 0 016 0V7" fill="none" stroke="currentColor" stroke-width="1.3"/></svg><span class="badge" id="bagCount" style="display:none">0</span></button>
+      <button class="iconbtn burger" id="burger" aria-label="Menú"><svg width="18" height="12" viewBox="0 0 18 12"><path d="M1 1h16M1 6h16M1 11h16" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg></button>
+    </div>
+  </div>
+</nav>
+<div class="mnav" id="mnav"></div>
+<div class="overlay" id="searchOv"><div class="searchp"><div class="narrow"><input id="searchIn" placeholder="Buscar en confortdent" autocomplete="off"><div class="res" id="searchRes"></div></div></div></div>
+<div class="bagpop" id="bagPop"></div>
+<div class="toast" id="toast"></div>
+
+<main id="app"></main>
+
+<footer>
+  <div class="wrap">
+    <p class="fine">Los precios mostrados no incluyen IVA (21 %). Envío, instalación y formación inicial incluidos en todos los sillones. Financiación sujeta a aprobación. Productos sanitarios con marcado CE conforme al Reglamento (UE) 2017/745. Lee las instrucciones de uso antes de utilizar el equipo.</p>
+    <div class="cols">
+      <div><h6>Comprar</h6><a href="#c-sillones">Sillones</a><a href="#configurar">Configurar tu sillón</a><a href="#c-bandejas">Bandejas</a><a href="#bandeja-a-medida">Bandeja a medida</a><a href="#c-rotatorios">Rotatorios</a></div>
+      <div><h6>Instrumental</h6><a href="#c-fresas">Fresas y limas</a><a href="#c-accesorios">Accesorios</a><a href="#c-consumibles">Consumibles</a><a href="#c-servicios">Servicios</a></div>
+      <div><h6>Confort Dent</h6><a href="#comparar">Comparar gamas</a><a href="#reciclate">Plan Recíclate</a><a href="#experiencias">Experiencias Pop-Up</a></div>
+      <div><h6>Para clínicas</h6><a href="#c-servicios">ConfortCare+</a><a href="#soporte">Financiación</a><a href="#experiencias">Demostración privada</a></div>
+      <div><h6>Ayuda</h6><a href="#soporte">Soporte técnico</a><a href="#bolsa">Tu bolsa</a><a href="#soporte">Preguntas frecuentes</a></div>
+    </div>
+    <p>Copyright © 2026 Confort Dent S.L. Todos los derechos reservados. &nbsp;·&nbsp; Privacidad &nbsp;·&nbsp; Condiciones de venta &nbsp;·&nbsp; Aviso legal &nbsp;·&nbsp; España</p>
+  </div>
+</footer>
+
+<script>
+/* ===================== helpers ===================== */
+const $ = s => document.querySelector(s);
+const app = $('#app');
+function num(n, dec){ const neg = n<0; n = Math.abs(n); let [i, d] = n.toFixed(dec).split('.'); i = i.replace(/\B(?=(\d{3})+(?!\d))/g, '.'); return (neg?'−':'') + i + (d?','+d:''); }
+const fmt = n => num(n, Math.round(n*100)%100 ? 2 : 0) + '\u00a0€';
+const fmt2 = n => num(n, 2) + '\u00a0€';
+const esc = s => String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+let uidc = 0; const uid = () => 'g' + (++uidc);
+const store = {
+  get(k, d){ try{ const v = localStorage.getItem(k); return v ? JSON.parse(v) : d; }catch(e){ return d; } },
+  set(k, v){ try{ localStorage.setItem(k, JSON.stringify(v)); }catch(e){} }
+};
+function toast(msg){ const t = $('#toast'); t.textContent = msg; t.classList.add('on'); clearTimeout(toast._t); toast._t = setTimeout(()=>t.classList.remove('on'), 2200); }
+function shade(hex, f){ const n = parseInt(hex.slice(1),16); let r=n>>16, g=(n>>8)&255, b=n&255;
+  const m = v => Math.max(0, Math.min(255, Math.round(f<0 ? v*(1+f) : v + (255-v)*f)));
+  return '#' + [m(r),m(g),m(b)].map(x=>x.toString(16).padStart(2,'0')).join(''); }
+
+/* ===================== illustrations (SVG) ===================== */
+const ART = {
+chair(o={}){
+  const u = o.uph || '#2E3236', fr = o.frame || '#e8ebed', tr = o.tray || '#9caf88', id = uid();
+  const range = o.range || 'pro', logo = o.logo || '', dark = o.dark;
+  const lo = shade(u,-.35), hi = shade(u,.22), fd = shade(fr,-.18);
+  const screen = range==='premium'
+    ? `<g><rect x="318" y="76" width="96" height="60" rx="7" fill="#0d1113" stroke="${fd}" stroke-width="3"/><rect x="324" y="82" width="84" height="48" rx="3" fill="url(#${id}s)"/><path d="M330 120 l10 -12 l10 6 l12 -18 l12 10 l10 -6" fill="none" stroke="#9fe0e8" stroke-width="2"/><rect x="216" y="104" width="70" height="44" rx="6" fill="#0d1113" stroke="${fd}" stroke-width="3"/><rect x="221" y="109" width="60" height="34" rx="2" fill="#1b5e6b"/><circle cx="251" cy="126" r="9" fill="#e9f6f8" opacity=".85"/></g>`
+    : range==='pro' ? `<g><path d="M300 150 L340 130" stroke="${fd}" stroke-width="5"/><rect x="330" y="98" width="80" height="52" rx="6" fill="#0d1113" stroke="${fd}" stroke-width="3"/><rect x="335" y="103" width="70" height="42" rx="2" fill="url(#${id}s)"/><path d="M350 135c6-20 14-20 20 0s14 20 20 0" fill="none" stroke="#9fe0e8" stroke-width="2"/></g>` : '';
+  const ambient = range!=='essential' ? `<path d="M205 296 L405 296" stroke="#9fe0e8" stroke-width="3" opacity=".75" stroke-linecap="round"/>` : '';
+  const lg = logo ? `<g><rect x="${300-Math.min(150,30+logo.length*7.2)/2}" y="281" width="${Math.min(150,30+logo.length*7.2)}" height="22" rx="11" fill="${o.logoBg||'#c9b48a'}"/><text x="300" y="296" text-anchor="middle" font-family="Inter,Arial" font-weight="700" font-size="11" letter-spacing=".5" fill="#1d1d1f">${esc(logo.toUpperCase().slice(0,18))}</text></g>` : '';
+  return `<svg viewBox="0 0 600 440" xmlns="http://www.w3.org/2000/svg"><defs>
+  <linearGradient id="${id}u" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="${hi}"/><stop offset="1" stop-color="${lo}"/></linearGradient>
+  <linearGradient id="${id}f" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="${fd}"/><stop offset=".5" stop-color="${fr}"/><stop offset="1" stop-color="${fd}"/></linearGradient>
+  <linearGradient id="${id}s" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#16424d"/><stop offset="1" stop-color="#0b1f25"/></linearGradient>
+  <radialGradient id="${id}l" cx=".5" cy="0" r="1"><stop offset="0" stop-color="#fff6dc" stop-opacity=".9"/><stop offset="1" stop-color="#fff6dc" stop-opacity="0"/></radialGradient>
+  </defs>
+  <ellipse cx="300" cy="408" rx="${dark?190:175}" ry="13" fill="${dark?'#000':'#000'}" opacity="${dark?.5:.10}"/>
+  <path d="M300 300 L300 60 Q300 40 320 36 L392 24" fill="none" stroke="url(#${id}f)" stroke-width="9" stroke-linecap="round"/>
+  <circle cx="300" cy="60" r="8" fill="${fr}"/>
+  <path d="M378 8 L478 2 Q490 2 490 14 L486 52 Q484 60 474 60 L398 62 Q386 62 385 50 Z" fill="${fr}" stroke="${fd}" stroke-width="1.5"/>
+  <rect x="392" y="52" width="88" height="7" rx="3.5" fill="#fff3cf"/>
+  ${screen}
+  <rect x="215" y="388" width="170" height="16" rx="8" fill="${shade(fr,-.35)}"/>
+  <rect x="270" y="296" width="60" height="98" rx="10" fill="url(#${id}f)"/>
+  <path d="M430 300 L470 228 L515 228" fill="none" stroke="url(#${id}f)" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+  <g transform="translate(484 196)">
+    <rect x="0" y="0" width="104" height="26" rx="8" fill="${fr}" stroke="${fd}" stroke-width="1.2"/>
+    <rect x="5" y="20" width="94" height="4" rx="2" fill="${tr}"/>
+    ${[16,40,64,88].map((x,i)=>`<path d="M${x} 26 L${x} 68" stroke="#4a5156" stroke-width="5" stroke-linecap="round"/><rect x="${x-5}" y="62" width="10" height="20" rx="5" fill="${i%2?tr:shade(tr,-.15)}"/>`).join('')}
+  </g>
+  <path d="M120 96 L205 262 L398 262 L528 334" fill="none" stroke="url(#${id}u)" stroke-width="54" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M128 100 L208 252 L398 252" fill="none" stroke="${hi}" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" opacity=".55"/>
+  <ellipse cx="108" cy="70" rx="40" ry="28" fill="url(#${id}u)" transform="rotate(-20 108 70)"/>
+  <path d="M205 292 L405 292" stroke="${shade(fr,-.3)}" stroke-width="6" stroke-linecap="round"/>
+  ${ambient}
+  ${lg}
+  </svg>`;
+},
+tray(o={}){
+  const a = o.accent || '#9caf88', tools = o.tools || [a,a,a,a], id = uid(), fr = '#eef1f2';
+  const n = tools.length, w = 300, x0 = 50, step = w/(n+1);
+  return `<svg viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="${id}" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fbfcfc"/><stop offset="1" stop-color="#d9dee1"/></linearGradient><linearGradient id="${id}m" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#9aa2a8"/><stop offset=".5" stop-color="#e6eaec"/><stop offset="1" stop-color="#8d959b"/></linearGradient></defs>
+  <ellipse cx="200" cy="276" rx="150" ry="9" fill="#000" opacity=".08"/>
+  <path d="M200 120 L200 150" stroke="url(#${id}m)" stroke-width="12"/>
+  <rect x="${x0-10}" y="74" width="${w+20}" height="50" rx="14" fill="url(#${id})" stroke="#c4cbd0"/>
+  <rect x="${x0}" y="112" width="${w}" height="6" rx="3" fill="${a}"/>
+  <rect x="${x0+w-70}" y="84" width="58" height="20" rx="5" fill="#13272d"/><circle cx="${x0+w-55}" cy="94" r="4" fill="${a}"/><rect x="${x0+w-46}" y="91" width="26" height="6" rx="3" fill="#2e5560"/>
+  <rect x="${x0+6}" y="84" width="${Math.max(30,w-100)}" height="18" rx="5" fill="none" stroke="#c4cbd0"/>
+  ${tools.map((c,i)=>{const x=x0+step*(i+1); return `<path d="M${x} 124 C ${x} 170, ${x+30} 190, ${x+10} 240" fill="none" stroke="#3b4247" stroke-width="5" stroke-linecap="round"/><g transform="translate(${x-6} 130) rotate(4)"><rect x="0" y="0" width="12" height="70" rx="6" fill="url(#${id}m)"/><rect x="0" y="40" width="12" height="7" fill="${c}"/><rect x="2" y="-10" width="8" height="14" rx="3" fill="#c3c9cd"/></g>`}).join('')}
+  </svg>`;
+},
+handpiece(o={}){
+  const ring = o.ring || '#c0392b', kind = o.kind || 'turbina', id = uid();
+  const head = kind==='turbina' ? `<circle cx="330" cy="84" r="20" fill="url(#${id})" stroke="#8d959b"/><circle cx="330" cy="84" r="7" fill="#bfc6ca"/>`
+    : kind==='micromotor' ? '' : kind==='recta' ? `<rect x="300" y="72" width="70" height="20" rx="10" fill="url(#${id})"/><rect x="368" y="79" width="20" height="6" rx="3" fill="#aab2b7"/>`
+    : `<path d="M300 92 Q322 96 332 78" stroke="url(#${id})" stroke-width="20" fill="none" stroke-linecap="round"/><circle cx="336" cy="74" r="14" fill="url(#${id})" stroke="#8d959b"/>`;
+  const body = kind==='micromotor'
+    ? `<rect x="90" y="150" width="230" height="40" rx="20" fill="url(#${id})" transform="rotate(-24 200 170)"/><rect x="170" y="150" width="14" height="40" fill="${ring}" transform="rotate(-24 200 170)"/><path d="M40 260 C 70 230, 80 225, 100 214" stroke="#2b3034" stroke-width="10" fill="none" stroke-linecap="round"/>`
+    : `<path d="M70 230 L300 92" stroke="url(#${id})" stroke-width="30" stroke-linecap="round"/><path d="M150 182 L170 170" stroke="${ring}" stroke-width="31"/><path d="M78 226 L292 98" stroke="#fff" stroke-width="3" opacity=".6" stroke-linecap="round"/>${kind==='turbina'?`<circle cx="306" cy="98" r="3" fill="#fff8d0"/><circle cx="306" cy="98" r="9" fill="#fff8d0" opacity=".3"/>`:''}<path d="M40 268 C 55 250, 60 244, 72 236" stroke="#2b3034" stroke-width="10" fill="none" stroke-linecap="round"/>`;
+  return `<svg viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="${id}" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f4f6f7"/><stop offset=".45" stop-color="#c7ced2"/><stop offset="1" stop-color="#7f888e"/></linearGradient></defs><ellipse cx="200" cy="272" rx="140" ry="8" fill="#000" opacity=".07"/>${body}${head}</svg>`;
+},
+burs(o={}){
+  const c = o.color || '#1f7a8c', shapes = o.shapes || ['round','cyl','flame','taper','round','cyl','flame'], id = uid();
+  const n = shapes.length, step = 260/(n);
+  return `<svg viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="${id}" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#8f979c"/><stop offset=".5" stop-color="#eef1f2"/><stop offset="1" stop-color="#8f979c"/></linearGradient><pattern id="${id}p" width="3" height="3" patternUnits="userSpaceOnUse"><rect width="3" height="3" fill="${o.head||'#d9c37c'}"/><circle cx="1" cy="1" r=".8" fill="#fff" opacity=".6"/></pattern></defs>
+  <ellipse cx="200" cy="268" rx="150" ry="9" fill="#000" opacity=".08"/>
+  <rect x="60" y="200" width="280" height="60" rx="12" fill="${o.stand||'#1d2427'}"/><rect x="60" y="200" width="280" height="10" rx="5" fill="#fff" opacity=".08"/>
+  ${shapes.map((s,i)=>{const x=70+step*(i+.5);let h='';
+    if(s==='round')h=`<circle cx="${x}" cy="70" r="9" fill="url(#${id}p)"/>`;
+    else if(s==='cyl')h=`<rect x="${x-6}" y="52" width="12" height="28" rx="3" fill="url(#${id}p)"/>`;
+    else if(s==='flame')h=`<path d="M${x} 44 C ${x+9} 58, ${x+8} 74, ${x} 82 C ${x-8} 74, ${x-9} 58, ${x} 44 Z" fill="url(#${id}p)"/>`;
+    else if(s==='twist')h=`<path d="M${x-4} 40 L${x+4} 48 L${x-4} 56 L${x+4} 64 L${x-4} 72 L${x+4} 80" stroke="url(#${id}p)" stroke-width="5" fill="none"/>`;
+    else h=`<path d="M${x-7} 82 L${x-2} 42 L${x+2} 42 L${x+7} 82 Z" fill="url(#${id}p)"/>`;
+    return `<rect x="${x-3.5}" y="80" width="7" height="${s==='twist'?60:120}" fill="url(#${id})"/>${s==='twist'?`<rect x="${x-9}" y="140" width="18" height="60" rx="4" fill="${o.handles?o.handles[i%o.handles.length]:c}"/>`:`<rect x="${x-3.6}" y="120" width="7.2" height="6" fill="${c}"/>`}${h}`}).join('')}
+  </svg>`;
+},
+pedal(o={}){ const id=uid(), c=o.color||'#2e3236';
+  return `<svg viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="${id}" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="${shade(c,.25)}"/><stop offset="1" stop-color="${shade(c,-.3)}"/></linearGradient></defs><ellipse cx="200" cy="250" rx="150" ry="14" fill="#000" opacity=".1"/>
+  <path d="M60 240 Q60 150 200 140 Q340 150 340 240 Z" fill="url(#${id})"/><ellipse cx="200" cy="190" rx="70" ry="26" fill="${shade(c,.35)}"/><ellipse cx="200" cy="184" rx="52" ry="18" fill="${shade(c,-.1)}"/><circle cx="200" cy="182" r="7" fill="#9fe0e8"/>
+  <rect x="96" y="208" width="40" height="12" rx="6" fill="${shade(c,.4)}"/><rect x="264" y="208" width="40" height="12" rx="6" fill="${shade(c,.4)}"/>
+  ${o.wireless?`<path d="M300 110 a26 26 0 0 1 26 26 M300 96 a40 40 0 0 1 40 40" fill="none" stroke="#0e5b6b" stroke-width="5" stroke-linecap="round"/>`:`<path d="M200 140 C 200 100, 260 80, 330 70" stroke="#2b3034" stroke-width="7" fill="none"/>`}</svg>`;
+},
+scanner(){ const id=uid(); return `<svg viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="${id}" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffffff"/><stop offset="1" stop-color="#c9d0d4"/></linearGradient></defs><ellipse cx="200" cy="260" rx="150" ry="9" fill="#000" opacity=".08"/>
+  <path d="M60 220 L250 110 Q270 98 290 104 L340 118 Q356 124 348 136 L330 146 Q318 152 300 146 L270 140 L90 250 Q70 260 60 240 Z" fill="url(#${id})" stroke="#b4bcc1"/><path d="M300 118 L340 128" stroke="#0e5b6b" stroke-width="6" stroke-linecap="round"/><circle cx="140" cy="198" r="6" fill="#0e5b6b"/><rect x="170" y="160" width="40" height="8" rx="4" fill="#9caf88" transform="rotate(-30 190 164)"/>
+  <path d="M290 70 a24 24 0 0 1 24 24 M290 56 a38 38 0 0 1 38 38" fill="none" stroke="#9caf88" stroke-width="5" stroke-linecap="round"/></svg>`; },
+device(o={}){ const id=uid(), c=o.color||'#f2f4f5', sc=o.screen||'#0e3b45';
+  return `<svg viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="${id}" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff"/><stop offset="1" stop-color="${shade(c,-.15)}"/></linearGradient></defs><ellipse cx="200" cy="258" rx="140" ry="10" fill="#000" opacity=".08"/>
+  <path d="M90 250 L110 70 Q112 56 126 56 L274 56 Q288 56 290 70 L310 250 Z" fill="url(#${id})" stroke="#c4cbd0"/><rect x="128" y="76" width="144" height="96" rx="8" fill="${sc}"/>
+  ${o.kind==='apex'?`<path d="M150 150 L150 100 L162 100 L170 150 Z" fill="#f3f6f7"/>${[0,1,2,3,4,5].map(i=>`<rect x="${185+i*12}" y="${140-i*7}" width="8" height="${10+i*7}" rx="2" fill="${i>3?'#e5534b':'#9fe0e8'}"/>`).join('')}`:`<path d="M140 150 l18 -24 l14 10 l20 -34 l18 22 l14 -10 l20 30" fill="none" stroke="#9fe0e8" stroke-width="3"/>`}
+  <circle cx="160" cy="210" r="14" fill="#dfe4e7"/><circle cx="200" cy="210" r="14" fill="#0e5b6b"/><circle cx="240" cy="210" r="14" fill="#dfe4e7"/>
+  ${o.kind==='endo'?`<path d="M300 150 C 350 150, 360 200, 330 230" stroke="#2b3034" stroke-width="6" fill="none"/><rect x="318" y="226" width="22" height="50" rx="11" fill="#dfe4e7" transform="rotate(-20 329 251)"/>`:''}</svg>`; },
+curing(){ const id=uid(); return `<svg viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="${id}" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff"/><stop offset="1" stop-color="#c3cacf"/></linearGradient><radialGradient id="${id}b"><stop offset="0" stop-color="#6fb6ff" stop-opacity=".9"/><stop offset="1" stop-color="#6fb6ff" stop-opacity="0"/></radialGradient></defs><ellipse cx="200" cy="266" rx="140" ry="8" fill="#000" opacity=".07"/>
+  <path d="M70 240 L270 120" stroke="url(#${id})" stroke-width="34" stroke-linecap="round"/><path d="M270 120 L320 96 Q336 90 340 106" stroke="#f0a24a" stroke-width="10" fill="none" stroke-linecap="round" opacity=".85"/><circle cx="342" cy="114" r="34" fill="url(#${id}b)"/><rect x="150" y="174" width="34" height="10" rx="5" fill="#0e5b6b" transform="rotate(-31 167 179)"/></svg>`; },
+stool(o={}){ const c=o.color||'#2e3236', id=uid(); return `<svg viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="${id}" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="${shade(c,.25)}"/><stop offset="1" stop-color="${shade(c,-.3)}"/></linearGradient></defs><ellipse cx="200" cy="276" rx="130" ry="10" fill="#000" opacity=".1"/>
+  ${o.saddle?`<path d="M110 92 Q150 70 200 96 Q250 70 290 92 Q300 120 250 128 L150 128 Q100 120 110 92Z" fill="url(#${id})"/>`:`<rect x="110" y="86" width="180" height="40" rx="20" fill="url(#${id})"/>`}
+  ${o.back?`<path d="M260 90 Q300 40 300 30" stroke="#9aa2a8" stroke-width="6" fill="none"/><rect x="268" y="12" width="60" height="30" rx="12" fill="url(#${id})"/>`:''}
+  <rect x="192" y="126" width="16" height="100" fill="#b7bec3"/><path d="M200 226 L110 256 M200 226 L290 256 M200 226 L150 262 M200 226 L250 262" stroke="#4a5156" stroke-width="8" stroke-linecap="round"/>${[110,290,150,250].map(x=>`<circle cx="${x}" cy="${x===110||x===290?258:264}" r="8" fill="#1d1d1f"/>`).join('')}</svg>`; },
+screen(){ return `<svg viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg"><ellipse cx="200" cy="270" rx="120" ry="8" fill="#000" opacity=".08"/><path d="M200 270 L200 210 L240 180" stroke="#b7bec3" stroke-width="10" fill="none" stroke-linecap="round"/><rect x="70" y="50" width="260" height="160" rx="12" fill="#121718"/><rect x="80" y="60" width="240" height="140" rx="6" fill="#0e3b45"/><path d="M130 160c20-60 50-60 70-20s50 40 70-20" stroke="#9fe0e8" stroke-width="3" fill="none"/><circle cx="160" cy="100" r="18" fill="#e9f6f8" opacity=".85"/></svg>`; },
+bottle(o={}){ const c=o.color||'#0e5b6b', id=uid(); return `<svg viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="${id}" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#e6eaec"/><stop offset=".4" stop-color="#ffffff"/><stop offset="1" stop-color="#cfd5d8"/></linearGradient></defs><ellipse cx="200" cy="270" rx="110" ry="9" fill="#000" opacity=".08"/>
+  ${[0,1].map(i=>{const x=i?230:120;return `<rect x="${x}" y="80" width="${i?70:90}" height="${i?180:186}" rx="18" fill="url(#${id})" stroke="#c9cfd3" transform="translate(0 ${i?6:0})"/><rect x="${x+(i?15:20)}" y="${i?58:52}" width="${i?40:50}" height="30" rx="6" fill="${c}"/><rect x="${x}" y="${i?150:140}" width="${i?70:90}" height="${i?50:60}" fill="${c}" opacity=".9"/><text x="${x+(i?35:45)}" y="${i?181:176}" font-family="Inter,Arial" font-size="${i?10:12}" font-weight="700" fill="#fff" text-anchor="middle">${esc(o.label||'CD')}</text>`}).join('')}</svg>`; },
+box(o={}){ const c=o.color||'#0e5b6b'; return `<svg viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg"><ellipse cx="200" cy="268" rx="130" ry="9" fill="#000" opacity=".08"/><path d="M90 110 L200 70 L310 110 L310 240 L200 270 L90 240 Z" fill="#f4f6f7" stroke="#cfd5d8"/><path d="M90 110 L200 150 L310 110" fill="none" stroke="#cfd5d8"/><path d="M200 150 L200 270" stroke="#cfd5d8"/><path d="M90 110 L200 150 L200 270 L90 240Z" fill="#fff"/><path d="M100 170 L190 200 L190 230 L100 200Z" fill="${c}"/><text x="145" y="208" font-family="Inter,Arial" font-weight="700" font-size="12" fill="#fff" text-anchor="middle" transform="rotate(18 145 205)">${esc(o.label||'CONFORT DENT')}</text><path d="M210 160 L300 128 L300 170 L210 202Z" fill="${shade(c,.75)}"/></svg>`; },
+shield(o={}){ const c=o.color||'#0e5b6b'; return `<svg viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="shg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="${shade(c,.3)}"/><stop offset="1" stop-color="${shade(c,-.3)}"/></linearGradient></defs><path d="M200 40 L300 78 L300 150 Q300 220 200 262 Q100 220 100 150 L100 78 Z" fill="url(#shg)"/><path d="M160 150 L190 180 L245 118" stroke="#fff" stroke-width="12" fill="none" stroke-linecap="round" stroke-linejoin="round"/>${o.plus?`<text x="300" y="80" font-family="Inter,Arial" font-weight="700" font-size="44" fill="${c}">+</text>`:''}</svg>`; },
+chip(){ return `<svg viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg"><rect x="130" y="80" width="140" height="140" rx="20" fill="#16424d"/><rect x="155" y="105" width="90" height="90" rx="10" fill="#0e5b6b"/><text x="200" y="160" font-family="Inter,Arial" font-weight="700" font-size="28" fill="#e9f6f8" text-anchor="middle">CD</text>${[0,1,2,3,4].map(i=>`<rect x="${148+i*24}" y="58" width="8" height="22" rx="3" fill="#9aa2a8"/><rect x="${148+i*24}" y="220" width="8" height="22" rx="3" fill="#9aa2a8"/><rect x="108" y="${98+i*24}" width="22" height="8" rx="3" fill="#9aa2a8"/><rect x="270" y="${98+i*24}" width="22" height="8" rx="3" fill="#9aa2a8"/>`).join('')}</svg>`; },
+upholstery(o={}){ const c=o.color||'#2e3236', id=uid(); return `<svg viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="${id}" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="${shade(c,.25)}"/><stop offset="1" stop-color="${shade(c,-.3)}"/></linearGradient></defs><ellipse cx="200" cy="262" rx="150" ry="9" fill="#000" opacity=".08"/><path d="M70 120 Q200 60 330 120 L330 230 Q200 260 70 230Z" fill="url(#${id})"/>${[0,1,2,3].map(i=>`<path d="M${100+i*66} 110 L${100+i*66} 240" stroke="${shade(c,-.25)}" stroke-width="2" opacity=".6"/>`).join('')}</svg>`; },
+tips(){ return ART.burs({shapes:['twist','twist','twist','twist','twist','twist'],handles:['#f2f2f2','#f4c430','#d9473e','#2f6fd6','#2f9e57','#1d1d1f'],head:'#c7ced2',stand:'#e9ecee'}); },
+glove(){ return ART.box({label:'NITRILO · M', color:'#4f6fb0'}); },
+cycles(){ return ART.chip(); },
+recycle(){ return `<svg viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg">${[0,120,240].map(a=>`<g transform="rotate(${a} 200 150)"><path d="M200 60 A90 90 0 0 1 278 105" fill="none" stroke="#9caf88" stroke-width="18" stroke-linecap="round"/><path d="M270 82 L292 112 L256 116Z" fill="#9caf88"/></g>`).join('')}</svg>`; },
+popup(){ return `<svg viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg"><rect x="60" y="70" width="280" height="190" rx="10" fill="#f4f6f7" stroke="#d2d6d9"/><rect x="60" y="70" width="280" height="40" rx="10" fill="#0e5b6b"/><text x="200" y="97" font-family="Inter,Arial" font-weight="600" font-size="16" fill="#fff" text-anchor="middle">Confort Dent · Pop-Up</text><rect x="90" y="130" width="100" height="110" rx="6" fill="#dfe8ea"/><rect x="210" y="130" width="100" height="60" rx="6" fill="#e9eedf"/><rect x="210" y="200" width="100" height="40" rx="6" fill="#dfe8ea"/></svg>`; },
+};
+
+/* ===================== catalogue ===================== */
+const UPH = [
+  {n:'Antracita mate', c:'#2E3236'}, {n:'Azul petróleo', c:'#0e4d5c'}, {n:'Verde salvia', c:'#7f9471'},
+  {n:'Arena', c:'#c8b69a'}, {n:'Burdeos', c:'#6b2430'}, {n:'Blanco perla', c:'#e9e6e0'}
+];
+const FRAMES = [{n:'Blanco clínico', c:'#eceff1'}, {n:'Grafito', c:'#6c7378'}, {n:'Champán', c:'#d8c9a8'}];
+const RANGES = {
+  essential:{name:'Confort Dent Essential', short:'Essential', price:14500, tag:'', lead:'Todo lo esencial, hecho extraordinario.',
+    feats:['Lámpara contactless por sensor de proximidad','Botonera física sellada de fácil desinfección','Pedal multifunción con cable reforzado','Tapicería viscoelástica mate','Receptor nativo para escáner intraoral']},
+  pro:{name:'Confort Dent Pro', short:'Pro', price:17500, tag:'Más vendido', lead:'Más confort para el paciente. Más control para ti.',
+    feats:['Tapicería bio-viscoelástica con memoria térmica y masaje lumbar','Iluminación ambiental LED regulable','Pantalla auxiliar articulada para escaneo intraoral','Botonera híbrida táctil-física','Pedal multifunción 100 % inalámbrico']},
+  premium:{name:'Confort Dent Premium', short:'Premium', price:21500, tag:'Nuevo', lead:'Sin botones. Sin contacto. Sin límites.',
+    feats:['Doble pantalla HD: paciente y clínica','Control integral por gestos Air-Gesture','Escaneo 3D, localizador de ápices y motor en tiempo real','IA predictiva de ciclos y ergonomía','Pedal inalámbrico programable']}
+};
+const SPEC = [
+  {id:'higiene', n:'Higiene y Profilaxis', c:'#78bec8', p:3900, d:'Aeropulidor de bicarbonato/glicina, ultrasonidos piezoeléctricos, micromotor para contraángulo de pulido y jeringa triple autoclavable.'},
+  {id:'endodoncia', n:'Endodoncia', c:'#e2a86e', p:4600, d:'Motor de endodoncia rotatoria con control de torque, localizador de ápices conectado a pantalla, obturación termoplástica y lámpara de polimerizar.'},
+  {id:'ortodoncia', n:'Ortodoncia', c:'#b29cd6', p:3900, d:'Lámpara de fotopolimerización de alta potencia, turbina para retirada de composite, jeringa aire/agua y soporte magnético autoclavable para alicates.'},
+  {id:'cirugia', n:'Cirugía e Implantes', c:'#dc7878', p:5400, d:'Motor de implantes con bomba peristáltica de suero estéril, bisturí piezoeléctrico, iluminación quirúrgica focalizada y bandeja esterilizable.'},
+  {id:'conservadora', n:'Conservadora y Prótesis', c:'#9caf88', p:4200, d:'Turbina de fibra óptica, micromotor de inducción, lámpara de polimerizar, mechero Bunsen electrónico sin llama y conexión directa al escáner.'}
+];
+const P = []; // products
+const add = p => P.push(p);
+// chairs
+Object.entries(RANGES).forEach(([k,r])=>add({id:'sillon-'+k, cat:'sillones', name:r.name, price:r.price, tag:r.tag, from:true, d:r.lead, art:()=>ART.chair({range:k, uph: k==='premium'?'#1f2326':k==='pro'?'#0e4d5c':'#2E3236'}), cfg:k,
+  specs:[['Gama',r.short],['Incluye','1 bandeja a elegir, escáner-ready, personalización de marca'],['Autoclave','Superficies y bandejas a 134 °C'],['Instalación','Incluida, con calibración y formación'],['Garantía','2 años (ampliable con ConfortCare+)']]}));
+// trays
+SPEC.forEach(s=>add({id:'bandeja-'+s.id, cat:'bandejas', name:'Bandeja '+s.n, price:s.p, tag: s.id==='cirugia'?'Nuevo':'', d:s.d.split(',')[0]+'.', long:s.d, art:()=>ART.tray({accent:s.c, tools:[s.c,'#cfd5d8',s.c,'#cfd5d8']}),
+  variants:{label:'Acabado del soporte', opts:[{n:'Blanco clínico',c:'#eceff1',dp:0},{n:'Grafito',c:'#6c7378',dp:290}]},
+  specs:[['Anclaje','Plug & Play universal magnético'],['Compatibilidad','Essential, Pro y Premium'],['Autoclavable','Sí, 134 °C'],['Peso','3,4 kg'],['Reconocimiento','Chip de identificación automática']]}));
+add({id:'bandeja-a-medida', cat:'bandejas', name:'Bandeja a medida', price:2900, from:true, tag:'Personalizable', d:'Elige hasta 5 instrumentos, el color y el grabado. Tu bandeja, solo tuya.', art:()=>ART.tray({accent:'#c9b48a', tools:['#78bec8','#e2a86e','#b29cd6','#dc7878','#9caf88']}), link:'bandeja-a-medida'});
+add({id:'soporte-bandejas', cat:'bandejas', name:'Carro de almacenaje para 4 bandejas', price:1690, d:'Guarda tus bandejas listas para el día de especialidad. Ruedas silenciosas y cierre higiénico.', art:()=>ART.device({kind:'store', screen:'#e6eaec'}), specs:[['Capacidad','4 bandejas'],['Material','Acero inoxidable y polímero médico']]});
+// rotatorios
+const HP = [
+ ['turbina-cd-t1','Turbina CD-T1 fibra óptica','turbina','#2f6fd6',1490,'Cabezal estándar, 4 sprays de agua y luz LED. Silenciosa y equilibrada.','Nuevo'],
+ ['turbina-cd-mini','Turbina CD-T1 Mini','turbina','#2f6fd6',1590,'Cabezal reducido para pediatría y zonas posteriores.',''],
+ ['contraangulo-15','Contraángulo multiplicador 1:5','contra','#d9473e',2290,'Anillo rojo. Corte de alta velocidad con fibra óptica y spray cuádruple.','Más vendido'],
+ ['contraangulo-11','Contraángulo 1:1','contra','#2f6fd6',1190,'Anillo azul. Versátil para conservadora y pulido.',''],
+ ['contraangulo-profi','Contraángulo de profilaxis 4:1','contra','#2f9e57',690,'Anillo verde. Para copas y cepillos de pulido.',''],
+ ['contraangulo-implant','Contraángulo de implantes 20:1','contra','#2f9e57',1890,'Alto torque y refrigeración interna/externa.',''],
+ ['pieza-recta','Pieza de mano recta 1:1','recta','#2f6fd6',890,'Para laboratorio y cirugía con fresas de pieza de mano.',''],
+ ['micromotor-induccion','Micromotor de inducción CD-M40','micromotor','#0e5b6b',2190,'Sin escobillas, de 100 a 40.000 rpm, luz LED integrada.','']];
+HP.forEach(h=>add({id:h[0], cat:'rotatorios', name:h[1], price:h[4], tag:h[6], d:h[5], art:()=>ART.handpiece({kind:h[2], ring:h[3]}),
+  variants: h[2]==='turbina'?{label:'Conexión',opts:[{n:'Confort Dent Quick',c:null,dp:0},{n:'Multiflex universal',c:null,dp:120}]}:null,
+  specs:[['Esterilización','Autoclave 134 °C'],['Rodamientos','Cerámicos'],['Iluminación', h[2]==='micromotor'?'LED integrada':'Fibra óptica'],['Garantía','24 meses']]}));
+add({id:'motor-endo', cat:'rotatorios', name:'Motor de endodoncia inalámbrico CD-E', price:2890, tag:'', d:'Rotación continua y reciprocante, localizador de ápices integrado y biblioteca de limas.', art:()=>ART.device({kind:'endo'}), specs:[['Velocidad','100–2.500 rpm'],['Torque','0,4–5 N·cm'],['Autonomía','8 h']]});
+// fresas
+const BR = [
+ ['fresas-diamante-fg','Fresas de diamante FG · 10 uds',119,{color:'#2f6fd6'},'Grano medio, anillo azul. Formas variadas para conservadora.'],
+ ['fresas-diamante-fino','Fresas de diamante grano fino · 10 uds',129,{color:'#d9473e'},'Anillo rojo para acabado y ajuste oclusal.'],
+ ['fresas-carburo','Fresas de carburo de tungsteno · 10 uds',139,{color:'#9aa2a8',head:'#b9c0c5'},'Corte limpio de amalgama y metal.'],
+ ['fresas-zirconio','Fresas para zirconio · 5 uds',159,{color:'#1d1d1f',head:'#e9ecee'},'Diamante sinterizado para coronas de zirconio.'],
+ ['fresas-pulido','Kit de pulido de composite · 8 uds',89,{color:'#f4c430',head:'#f0d978',shapes:['round','flame','cyl','round','flame','cyl']},'Brillo natural en dos pasos.'],
+ ['fresas-cirugia','Kit de fresas quirúrgicas de hueso',249,{color:'#2f9e57',head:'#c7ced2',shapes:['round','round','taper','taper','cyl']},'Pieza de mano recta. Acero quirúrgico.'],
+ ['fresas-implantes','Kit de fresas para implantes',690,{color:'#0e5b6b',head:'#c7ced2',shapes:['taper','taper','taper','taper','taper','taper'],stand:'#0e3b45'},'Secuencia completa con topes de profundidad.'],
+ ['limas-niti','Limas rotatorias NiTi · 6 uds',119,null,'Secuencia ISO 15–40, memoria de forma tratada térmicamente.']];
+BR.forEach(b=>add({id:b[0], cat:'fresas', name:b[1], price:b[2], d:b[4], art:()=> b[3]?ART.burs(b[3]):ART.tips(), tag:b[0]==='limas-niti'?'Nuevo':'',
+  variants:{label:'Cantidad',opts:[{n:'1 caja',dp:0,mult:1},{n:'Pack 3 cajas (−10 %)',dp:0,mult:2.7},{n:'Pack 6 cajas (−15 %)',dp:0,mult:5.1}]},
+  specs:[['Vástago', b[0].includes('cirugia')||b[0].includes('implantes')?'Pieza de mano / contraángulo':'FG ø1,6 mm'],['Esterilización','Autoclavable'],['Uso','Profesional']]}));
+// accesorios
+const AC = [
+ ['pedal-air','Pedal Air inalámbrico',1290,()=>ART.pedal({wireless:true}),'Programable, baja latencia y 30 días de batería.','Nuevo'],
+ ['pedal-cable','Pedal multifunción con cable',590,()=>ART.pedal({}),'Robusto, sellado IPX6.',''],
+ ['escaner-cd-scan','Escáner intraoral CD Scan',13900,()=>ART.scanner(),'Inalámbrico, nativo en el sillón. Captura 3D a color en tiempo real.',''],
+ ['localizador-apices','Localizador de ápices CD Apex',1390,()=>ART.device({kind:'apex'}),'Precisión multifrecuencia. Se muestra en la pantalla del sillón.',''],
+ ['lampara-polimerizar','Lámpara de polimerizar CD Light',890,()=>ART.curing(),'1.600 mW/cm², espectro amplio, 3 modos.',''],
+ ['pantalla-auxiliar','Pantalla auxiliar articulada 15"',1990,()=>ART.screen(),'Táctil, para escaneo y educación del paciente.',''],
+ ['taburete-doctor','Taburete ergonómico doctor',1190,()=>ART.stool({saddle:true, color:'#0e4d5c'}),'Asiento silla de montar y respaldo lumbar.','',true],
+ ['taburete-asistente','Taburete higienista',1090,()=>ART.stool({back:true, color:'#2E3236'}),'Apoyo lateral y altura extendida.','',true],
+ ['funda-tapiceria','Funda protectora de tapicería',189,()=>ART.upholstery({color:'#c8b69a'}),'Resistente a desinfectantes. A medida de tu gama.','',true]];
+AC.forEach(a=>add({id:a[0], cat:'accesorios', name:a[1], price:a[2], art:a[3], d:a[4], tag:a[5],
+  variants: a[6]?{label:'Color',opts:UPH.slice(0,5).map(u=>({n:u.n,c:u.c,dp:0}))}:null,
+  specs:[['Compatibilidad','Essential, Pro y Premium'],['Garantía','24 meses']]}));
+// consumibles
+const CO = [
+ ['glicina','Polvo de glicina · 4 botes',129,'#78bec8','GLICINA','Para aeropulido subgingival suave.'],
+ ['bicarbonato','Polvo de bicarbonato · 4 botes',89,'#9caf88','BICARB.','Sabores menta y neutro.'],
+ ['desinfectante-conductos','Desinfectante de conductos · 2 L',89,'#0e5b6b','CD CLEAN','Para el lavado continuo automático.'],
+ ['autolubricacion','Cartucho de autolubricación',119,'#c9b48a','CD LUBE','Cartucho original, necesario para la autolubricación interna. Rinde 2.000 ciclos.'],
+ ['puntas-jeringa','Puntas autoclavables jeringa triple · 20 uds',149,'#2E3236','CD TIP','Acero inoxidable, rosca rápida.'],
+ ['copas-cepillos','Copas y cepillos de profilaxis · 100 uds',95,'#b29cd6','PROFI','Contraángulo desechable o reutilizable.'],
+ ['filtros-aspiracion','Kit de filtros de aspiración',89,'#6c7378','FILTRO','Cambio recomendado mensual.'],
+ ['guantes-nitrilo','Guantes de nitrilo · caja 100',24,'#4f6fb0','NITRILO','Sin polvo. Tallas XS–XL.']];
+CO.forEach(c=>add({id:c[0], cat:'consumibles', name:c[1], price:c[2], d:c[5], art: c[0]==='guantes-nitrilo'? (()=>ART.box({label:c[4],color:c[3]})) : (()=>ART.bottle({color:c[3], label:c[4]})),
+  variants: c[0]==='guantes-nitrilo'?{label:'Talla',opts:['XS','S','M','L','XL'].map(n=>({n,dp:0}))}:{label:'Cantidad',opts:[{n:'1 unidad',dp:0,mult:1},{n:'Suscripción mensual (−10 %)',dp:0,mult:.9}]},
+  specs:[['Uso','Profesional sanitario']]}));
+// servicios
+add({id:'confortcare', cat:'servicios', name:'ConfortCare+ 3 años', price:4900, tag:'Recomendado', d:'Mantenimiento preventivo, piezas, SAT prioritario en 24 h y sillón de sustitución.', art:()=>ART.shield({plus:true}), specs:[['Cobertura','3 años'],['Visitas preventivas','2 al año'],['Respuesta SAT','24 h laborables']]});
+add({id:'mantenimiento-anual', cat:'servicios', name:'Mantenimiento anual', price:1890, d:'Revisión completa, calibración, actualización de software y renovación de ciclos de seguridad.', art:()=>ART.shield({color:'#7f9471'}), specs:[['Duración','12 meses']]});
+add({id:'renovacion-ciclos', cat:'servicios', name:'Renovación de ciclos certificados', price:690, d:'Reactiva y recalibra los componentes inteligentes al completar su ciclo de uso.', art:()=>ART.cycles(), specs:[['Aplicación','Remota, en minutos']]});
+add({id:'formacion', cat:'servicios', name:'Formación avanzada en clínica', price:590, d:'Sesión de 3 h con un especialista para todo tu equipo.', art:()=>ART.popup(), specs:[['Duración','3 horas'],['Asistentes','Hasta 8 personas']]});
+
+const CATS = [
+  {id:'sillones', n:'Sillones', h:'Sillones dentales', s:'Tres gamas. Una forma de entender la clínica.', art:()=>ART.chair({range:'pro', uph:'#0e4d5c'})},
+  {id:'bandejas', n:'Bandejas', h:'Bandejas modulares', s:'Cambia de especialidad en segundos.', art:()=>ART.tray({accent:'#e2a86e'})},
+  {id:'rotatorios', n:'Rotatorios', h:'Turbinas, contraángulos y micromotores', s:'Precisión que se siente en la mano.', art:()=>ART.handpiece({ring:'#d9473e', kind:'contra'})},
+  {id:'fresas', n:'Fresas y limas', h:'Fresas y limas', s:'Cada forma, para cada gesto.', art:()=>ART.burs({})},
+  {id:'accesorios', n:'Accesorios', h:'Accesorios', s:'Completa tu gabinete.', art:()=>ART.pedal({wireless:true})},
+  {id:'consumibles', n:'Consumibles', h:'Consumibles', s:'Siempre a punto. Con suscripción, siempre en stock.', art:()=>ART.bottle({})},
+  {id:'servicios', n:'Servicios', h:'Servicios y ConfortCare+', s:'Tranquilidad incluida.', art:()=>ART.shield({plus:true})},
+];
+const byId = id => P.find(p=>p.id===id);
+
+/* ===================== bag ===================== */
+let bag = store.get('cd_bag', []);
+let promo = store.get('cd_promo', null);
+let credit = store.get('cd_credit', 0);
+const PROMOS = {BIENVENIDA:{pct:5, txt:'5 % de bienvenida'}, HIGIENE10:{pct:10, txt:'10 % en tu primer pedido de higiene', onlyCat:['consumibles','fresas','rotatorios','bandejas']}, POPUP2026:{pct:7, txt:'7 % visitantes Pop-Up'}};
+function saveBag(){ store.set('cd_bag', bag); store.set('cd_promo', promo); store.set('cd_credit', credit); renderBadge(); }
+function renderBadge(){ const n = bag.reduce((a,b)=>a+b.qty,0); const el = $('#bagCount'); el.textContent = n; el.style.display = n?'grid':'none'; }
+function addToBag(item){
+  const same = bag.find(b=>b.key===item.key);
+  if(same) same.qty += item.qty; else bag.push(item);
+  saveBag(); showBagPop(item);
+}
+function totals(){
+  const sub = bag.reduce((a,b)=>a+b.price*b.qty,0);
+  let disc = 0;
+  if(promo && PROMOS[promo]){ const p = PROMOS[promo];
+    const base = p.onlyCat ? bag.filter(b=>p.onlyCat.includes(b.cat)).reduce((a,b)=>a+b.price*b.qty,0) : sub;
+    disc = Math.round(base * p.pct)/100; }
+  const cr = Math.min(credit, Math.max(0, sub - disc));
+  const hasChair = bag.some(b=>b.cat==='sillones');
+  const ship = (sub===0 || hasChair || sub - disc >= 150) ? 0 : 9.90;
+  const base = sub - disc - cr + ship;
+  const iva = Math.round(base*21)/100;
+  return {sub, disc, cr, ship, iva, total: base + iva, hasChair};
+}
+function itemArt(b){
+  if(b.kind==='chair') return ART.chair(b.cfg);
+  if(b.kind==='tray') return ART.tray(b.cfg);
+  const p = byId(b.pid); return p ? p.art() : '';
+}
+function showBagPop(item){
+  const pop = $('#bagPop');
+  pop.innerHTML = `<div style="display:flex;gap:10px;align-items:center;font-size:15px;font-weight:600;margin-bottom:14px"><svg width="20" height="20" viewBox="0 0 20 20"><circle cx="10" cy="10" r="10" fill="#0b8a5a"/><path d="M5.5 10.5l3 3 6-7" stroke="#fff" stroke-width="2" fill="none" stroke-linecap="round"/></svg>Añadido a tu selección</div>
+  <div style="display:flex;gap:14px;align-items:center"><div style="width:96px;height:72px;background:var(--bg);border-radius:12px;padding:4px">${itemArt(item)}</div><div style="flex:1;font-size:14px"><b>${esc(item.name)}</b><div class="grey" style="font-size:13px;margin-top:2px">${esc((item.lines||[])[0]||'')}</div></div></div>
+  <a class="btn block mt16" href="#bolsa">Ver mi selección</a><button class="btn ghost block mt8" style="border-radius:12px" onclick="$('#bagPop').classList.remove('open')">Volver al catálogo</button>`;
+  pop.classList.add('open'); clearTimeout(showBagPop._t); showBagPop._t = setTimeout(()=>pop.classList.remove('open'), 6000);
+}
+$('#bagBtn').onclick = (e)=>{ e.stopPropagation(); const pop = $('#bagPop');
+  if(pop.classList.contains('open')){ pop.classList.remove('open'); return; }
+  const t = totals();
+  pop.innerHTML = bag.length ? `<div style="font-size:24px;font-weight:600;letter-spacing:-.02em;margin-bottom:10px">Tu selección</div>${bag.slice(0,4).map(b=>`<div style="display:flex;gap:12px;align-items:center;padding:8px 0;border-bottom:1px solid #eee"><div style="width:58px;height:44px;background:var(--bg);border-radius:8px;padding:3px">${itemArt(b)}</div><div style="flex:1;font-size:13.5px">${esc(b.name)}${b.qty>1?` <span class="grey">×${b.qty}</span>`:''}</div><div style="font-size:13.5px">${fmt(b.price*b.qty)}</div></div>`).join('')}${bag.length>4?`<div class="grey" style="font-size:13px;padding-top:8px">y ${bag.length-4} artículo(s) más</div>`:''}<div style="display:flex;justify-content:space-between;margin-top:14px;font-weight:600"><span>Subtotal</span><span>${fmt(t.sub)}</span></div><a class="btn block mt16" href="#bolsa">Ver mi selección</a>`
+  : `<div style="font-size:24px;font-weight:600;letter-spacing:-.02em">Tu selección está vacía.</div><p class="grey mt8" style="font-size:14px">Descubre los sillones y el instrumental de Confort Dent.</p><a class="btn block mt16" href="#tienda">Ir a la tienda</a>`;
+  pop.classList.add('open'); };
+document.addEventListener('click', e=>{ const pop=$('#bagPop'); if(pop.classList.contains('open') && !pop.contains(e.target) && !e.target.closest('#bagBtn')) pop.classList.remove('open'); });
+
+/* ===================== search ===================== */
+$('#searchBtn').onclick = ()=>{ $('#searchOv').classList.add('open'); $('#searchIn').value=''; renderSearch(''); setTimeout(()=>$('#searchIn').focus(), 50); };
+$('#searchOv').onclick = e=>{ if(e.target.id==='searchOv') $('#searchOv').classList.remove('open'); };
+document.addEventListener('keydown', e=>{ if(e.key==='Escape'){ $('#searchOv').classList.remove('open'); $('#bagPop').classList.remove('open'); }});
+$('#searchIn').oninput = e=>renderSearch(e.target.value);
+$('#searchIn').onkeydown = e=>{ if(e.key==='Enter'){ const a = $('#searchRes a'); if(a){ location.hash = a.getAttribute('href').slice(1); $('#searchOv').classList.remove('open'); } } };
+function norm(s){ return s.toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g,''); }
+function renderSearch(q){
+  const r = $('#searchRes'); q = norm(q.trim());
+  if(!q){ r.innerHTML = `<div class="hint">Enlaces rápidos</div>${[['configurar','Configura tu sillón'],['bandeja-a-medida','Diseña tu bandeja a medida'],['c-rotatorios','Turbinas y contraángulos'],['reciclate','Valora tu sillón antiguo'],['experiencias','Reserva una experiencia Pop-Up']].map(([h,t])=>`<a href="#${h}" onclick="$('#searchOv').classList.remove('open')">→ ${t}</a>`).join('')}`; return; }
+  const res = P.filter(p=>norm(p.name+' '+p.d+' '+p.cat).includes(q)).slice(0,8);
+  r.innerHTML = `<div class="hint">${res.length? 'Productos':'Sin resultados para «'+esc(q)+'»'}</div>` + res.map(p=>`<a href="#${p.link||'p-'+p.id}" onclick="$('#searchOv').classList.remove('open')"><div class="mi">${p.art()}</div><span>${esc(p.name)}<br><small class="grey">${p.from?'Desde ':''}${fmt(p.price)}</small></span></a>`).join('');
+}
+
+/* ===================== mobile nav ===================== */
+$('#mnav').innerHTML = [['tienda','Tienda'],['c-sillones','Sillones'],['configurar','Configurar'],['c-bandejas','Bandejas'],['c-rotatorios','Rotatorios'],['c-fresas','Fresas'],['c-accesorios','Accesorios'],['c-consumibles','Consumibles'],['reciclate','Recíclate'],['soporte','Soporte']].map(([h,t])=>`<a href="#${h}">${t}</a>`).join('');
+$('#burger').onclick = ()=>$('#mnav').classList.toggle('open');
+
+/* ===================== shared bits ===================== */
+const ICON = {
+  truck:`<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0e5b6b" stroke-width="1.6"><path d="M2 6h12v10H2zM14 10h4l4 3v3h-8z"/><circle cx="6" cy="18" r="2"/><circle cx="18" cy="18" r="2"/></svg>`,
+  card:`<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0e5b6b" stroke-width="1.6"><rect x="2" y="5" width="20" height="14" rx="3"/><path d="M2 10h20"/></svg>`,
+  pen:`<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0e5b6b" stroke-width="1.6"><path d="M4 20l4-1 11-11-3-3L5 16z"/></svg>`,
+  leaf:`<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0e5b6b" stroke-width="1.6"><path d="M5 19c0-9 6-14 15-14 0 9-5 15-14 15M5 19l8-8"/></svg>`,
+  tool:`<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0e5b6b" stroke-width="1.6"><path d="M14 6a4 4 0 005 5l-9 9-3-3 9-9a4 4 0 01-2-2z"/></svg>`,
+  grad:`<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0e5b6b" stroke-width="1.6"><path d="M2 9l10-5 10 5-10 5zM6 11v5c3 2 9 2 12 0v-5"/></svg>`,
+  check:`<svg width="12" height="12" viewBox="0 0 12 12"><path d="M2 6.5l2.5 2.5L10 3.5" stroke="#fff" stroke-width="2" fill="none" stroke-linecap="round"/></svg>`
+};
+const perks = ()=>`<div class="perks"><div>${ICON.truck}<span><b>Envío e instalación gratuitos</b><br><span class="grey">Para sillones. Resto de pedidos gratis desde 150 €.</span></span></div><div>${ICON.card}<span><b>Financiación al 0 % TAE</b><br><span class="grey">Hasta 36 meses para clínicas y profesionales.</span></span></div><div>${ICON.leaf}<span><b>Plan Recíclate</b><br><span class="grey">Entrega tu equipo antiguo y obtén un crédito al momento.</span></span></div></div>`;
+function whyRow(){ const W = [
+  [ICON.truck,'Envío, instalación y formación incluidos.','Nuestros técnicos montan, calibran y enseñan a tu equipo a sacarle todo el partido.'],
+  [ICON.card,'Paga en 36 meses al 0 % TAE.','Financiación sujeta a aprobación para clínicas y profesionales sanitarios.'],
+  [ICON.pen,'Tu marca, grabada. Sin coste.','Logotipo y colores corporativos de tu clínica en la estructura y la tapicería.'],
+  [ICON.leaf,'Recíclate.','Valoramos tu sillón antiguo y lo transformamos en crédito para tu compra.'],
+  [ICON.tool,'SAT en 24 horas.','Con ConfortCare+, un técnico en tu clínica en un día laborable.'],
+  [ICON.grad,'Para facultades.','Condiciones especiales para universidades y centros de formación.']];
+  return `<div class="scroller">${W.map(w=>`<div class="why"><div class="ico">${w[0].replace('width="22" height="22"','width="40" height="40"')}</div><h5>${w[1]}</h5><p>${w[2]}</p></div>`).join('')}</div>`; }
+function pcard(p){
+  const sw = p.variants && p.variants.opts[0].c ? `<div class="sw">${p.variants.opts.filter(o=>o.c).map(o=>`<span class="dot" style="background:${o.c}"></span>`).join('')}</div>` : (p.cat==='sillones'?`<div class="sw">${UPH.map(u=>`<span class="dot" style="background:${u.c}"></span>`).join('')}</div>`:'');
+  return `<a class="pcard" href="#${p.link||'p-'+p.id}"><div class="tag">${esc(p.tag||'')}</div><div class="img">${p.art()}</div><h4>${esc(p.name)}</h4>${sw}<div class="d">${esc(p.d)}</div><div class="pr">${p.from?'Desde ':''}${fmt(p.price)}</div></a>`;
+}
+
+/* ===================== pages ===================== */
+function pageHome(){
+  return `
+  <div class="ribbon"><span>Experiencias privadas · Madrid · Barcelona · Valencia · Sevilla</span><a href="#experiencias">Reservar visita →</a></div>
+  <section class="h-split"><div class="wrap h-grid">
+    <div class="h-copy"><div class="kicker">Colección 2026 · Gama Premium</div>
+      <h1 class="disp">El sillón que cambia<br>contigo <em>cada día.</em></h1>
+      <p class="h-lead">Bandejas intercambiables por especialidad, control por gestos y superficies 100 % autoclavables. Diseñado en España para clínicas que cuidan cada detalle.</p>
+      <div class="ctas-l"><a class="btn" href="#configurar-premium">Diseñar mi sillón</a><a class="btn ghost" href="#comparar">Ver las tres gamas</a></div>
+      <div class="stats"><div><b>5</b><span>bandejas por<br>especialidad</span></div><div><b>134°</b><span>superficies<br>autoclavables</span></div><div><b>0</b><span>contacto en<br>lámpara y mandos</span></div></div>
+    </div>
+    <div class="h-art"><div class="h-plate">${ART.chair({range:'premium', uph:'#1f2a2e', frame:'#d8c9a8', dark:true, tray:'#c9b48a', logo:'Confort Dent'})}</div><div class="h-tag"><span>Desde</span><b>${fmt(21500)}</b></div></div>
+  </div></section>
+  <div class="marquee"><div class="mq">${[...SPEC,...SPEC].map(s=>`<span><i style="background:${s.c}"></i>${s.n}</span>`).join('')}</div></div>
+  <section class="sec"><div class="wrap"><div class="sechead"><div><div class="kicker">Sistema modular</div><h2 class="disp2">Una bandeja para cada <em>especialidad.</em></h2></div><p>El higienista o el doctor cambia la bandeja completa en segundos, según la agenda del día. El sillón la reconoce y se configura solo.</p></div>
+    <div class="traygrid">${SPEC.map((s,i)=>`<a class="trayc" href="#p-bandeja-${s.id}"><span class="idx">0${i+1}</span><div class="ta">${ART.tray({accent:s.c, tools:[s.c,'#cfd5d8',s.c]})}</div><h4>${s.n}</h4><span class="tp">${fmt(s.p)} →</span></a>`).join('')}
+    <a class="trayc custom" href="#bandeja-a-medida"><span class="idx">✦</span><div class="ta">${ART.tray({accent:'#c9b48a', tools:['#78bec8','#e2a86e','#b29cd6','#dc7878']})}</div><h4>Bandeja a medida</h4><span class="tp">Diseñar →</span></a></div></div></section>
+  <section class="band dark"><div class="wrap band-grid"><div class="band-art">${ART.chair({range:'essential', uph:'#6b2430', frame:'#d8c9a8', logo:'Clínica Aura', dark:true})}</div><div><div class="kicker light">Personalización</div><h2 class="disp2">Tu nombre,<br><em>grabado en él.</em></h2><p>Logotipo y colores corporativos de tu clínica en la estructura y la tapicería. Te enviamos una prueba de diseño antes de fabricar. Sin coste adicional.</p><a class="btn light mt24" href="#configurar">Personalizar ahora</a></div></div></section>
+  <section class="sec"><div class="wrap"><div class="duo">
+    <a class="duo-c" href="#c-rotatorios" style="background:#efe9df"><div class="kicker">Rotatorios CD</div><h3 class="disp3">Silencio, equilibrio<br>y luz en la mano.</h3><div class="duo-a">${ART.handpiece({ring:'#d9473e', kind:'contra'})}</div><span class="tp">Ver turbinas y contraángulos →</span></a>
+    <a class="duo-c" href="#reciclate" style="background:#e3ead9"><div class="kicker">Plan Recíclate</div><h3 class="disp3">Tu sillón antiguo<br>vale más de lo que crees.</h3><div class="duo-a" style="max-width:220px">${ART.recycle()}</div><span class="tp">Valorar mi equipo →</span></a>
+  </div></div></section>
+  <section class="sec soft"><div class="wrap"><div class="sechead"><div><div class="kicker">Compromiso</div><h2 class="disp2">Por qué <em>Confort Dent.</em></h2></div></div>${whyRow()}</div></section>`;
+}
+function pageStore(){
+  const latest = ['sillon-premium','bandeja-cirugia','pedal-air','limas-niti','turbina-cd-t1','confortcare'].map(byId);
+  return `<div class="wrap fade-in">
+  <div class="storehead"><div><div class="kicker">Catálogo</div><h1 class="disp">Equipamiento para clínicas<br>que cuidan <em>cada detalle.</em></h1></div><div class="help"><div style="display:flex;gap:10px;align-items:center"><svg width="34" height="34" viewBox="0 0 34 34"><circle cx="17" cy="17" r="17" fill="#e8f3ef"/><path d="M11 20c0-5 3-8 6-8s6 3 6 8M13 23h8" stroke="#0e5b6b" stroke-width="1.6" fill="none" stroke-linecap="round"/></svg><div><b>¿Necesitas ayuda para elegir?</b><br><a href="#experiencias">Habla con un especialista ›</a></div></div><div style="margin-top:12px"><a href="#experiencias">Visita una Pop-Up Confort Dent ›</a></div></div></div>
+  <div class="cats">${CATS.map(c=>`<a class="cat" href="#c-${c.id}"><div class="ci">${c.art()}</div>${c.n}</a>`).join('')}<a class="cat" href="#bandeja-a-medida"><div class="ci">${ART.tray({accent:'#c9b48a',tools:['#78bec8','#e2a86e','#b29cd6']})}</div>A medida</a></div>
+  <div class="rowtitle"><em>Novedades</em> de temporada</div>
+  <div class="scroller">${latest.map((p,i)=>`<a class="scard ${i===0?'dark':''}" href="#${p.cfg?'configurar-'+p.cfg:'p-'+p.id}"><div class="kick">${esc(p.tag||'Nuevo')}</div><h4>${esc(p.name)}</h4><p>${esc(p.d)}</p><p style="color:inherit;margin-top:6px">${p.from?'Desde ':''}${fmt(p.price)}</p><div class="art">${i===0?ART.chair({range:'premium',uph:'#1f2326',frame:'#6c7378',dark:true}):p.art()}</div></a>`).join('')}</div>
+  <div class="rowtitle">Por qué <em>Confort Dent</em></div>${whyRow()}
+  <div class="rowtitle">Hecho <em>a medida</em></div>
+  <div class="scroller"><a class="scard" href="#configurar"><div class="kick">Configurador</div><h4>Diseña tu sillón en 3 minutos.</h4><p>Gama, tapicería, estructura, bandejas y tu logotipo grabado.</p><div class="art">${ART.chair({range:'pro',uph:'#7f9471',frame:'#d8c9a8',logo:'Tu clínica'})}</div></a>
+  <a class="scard" href="#bandeja-a-medida"><div class="kick">Bandeja a medida</div><h4>Cinco instrumentos. Los tuyos.</h4><p>Combina rotatorios, ultrasonidos, luz y más en una sola bandeja.</p><div class="art">${ART.tray({accent:'#c9b48a',tools:['#78bec8','#e2a86e','#b29cd6','#dc7878','#9caf88']})}</div></a>
+  <a class="scard dark" href="#comparar"><div class="kick">Comparar</div><h4>¿Essential, Pro o Premium?</h4><p>Encuentra la gama perfecta para tu forma de trabajar.</p><div class="art">${ART.chair({range:'essential',uph:'#c8b69a',dark:true})}</div></a></div>
+  <div class="rowtitle">Para tu <em>gabinete</em></div>
+  <div class="pgrid" style="margin-bottom:60px">${P.filter(p=>['accesorios','rotatorios'].includes(p.cat)).slice(0,8).map(pcard).join('')}</div>
+  </div>`;
+}
+let catFilter = {};
+function pageCat(id){
+  const c = CATS.find(x=>x.id===id); if(!c) return page404();
+  const f = catFilter[id] || {sort:'dest', q:'all'};
+  let items = P.filter(p=>p.cat===id);
+  let chips = '';
+  if(id==='rotatorios'){ const g={all:'Todo',turbina:'Turbinas',contra:'Contraángulos',otros:'Motores y piezas rectas'}; chips = Object.entries(g).map(([k,v])=>`<button class="chip ${f.q===k?'on':''}" data-chip="${k}">${v}</button>`).join('');
+    if(f.q==='turbina') items = items.filter(p=>p.id.startsWith('turbina')); if(f.q==='contra') items = items.filter(p=>p.id.startsWith('contra')); if(f.q==='otros') items = items.filter(p=>!p.id.startsWith('turbina')&&!p.id.startsWith('contra')); }
+  if(id==='fresas'){ const g={all:'Todo',diamante:'Diamante',carburo:'Carburo',quir:'Cirugía e implantes',limas:'Limas'}; chips = Object.entries(g).map(([k,v])=>`<button class="chip ${f.q===k?'on':''}" data-chip="${k}">${v}</button>`).join('');
+    if(f.q==='diamante') items = items.filter(p=>p.id.includes('diamante')||p.id.includes('zirconio')||p.id.includes('pulido')); if(f.q==='carburo') items = items.filter(p=>p.id.includes('carburo')); if(f.q==='quir') items = items.filter(p=>p.id.includes('cirugia')||p.id.includes('implantes')); if(f.q==='limas') items = items.filter(p=>p.id.includes('limas')); }
+  if(f.sort==='asc') items = [...items].sort((a,b)=>a.price-b.price);
+  if(f.sort==='desc') items = [...items].sort((a,b)=>b.price-a.price);
+  if(f.sort==='az') items = [...items].sort((a,b)=>a.name.localeCompare(b.name));
+  const head = id==='sillones' ? `<div class="mt24" style="display:flex;gap:16px;flex-wrap:wrap"><a class="btn" href="#configurar">Configura el tuyo</a><a class="btn ghost" href="#comparar">Comparar gamas</a></div>`:'';
+  return `<div class="wrap fade-in"><div class="storehead" style="padding-bottom:10px"><div><div class="kicker">${c.n}</div><h1 class="disp">${c.h}</h1><p class="sub grey mt8">${c.s}</p>${head}</div></div>
+  <div class="toolbar"><div class="chips">${chips}</div><select class="sel" id="sortSel"><option value="dest">Destacados</option><option value="asc">Precio: de menor a mayor</option><option value="desc">Precio: de mayor a menor</option><option value="az">Nombre</option></select></div>
+  <div class="pgrid" style="margin:10px 0 70px">${items.map(pcard).join('')}</div></div>`;
+}
+function bindCat(id){
+  const f = catFilter[id] = catFilter[id] || {sort:'dest', q:'all'};
+  const s = $('#sortSel'); if(s){ s.value = f.sort; s.onchange = ()=>{ f.sort = s.value; render(); }; }
+  document.querySelectorAll('[data-chip]').forEach(b=>b.onclick=()=>{ f.q = b.dataset.chip; render(); });
+}
+
+let pstate = {};
+function pageProduct(id){
+  const p = byId(id); if(!p) return page404();
+  if(p.cfg) return pageRangeInfo(p);
+  const st = pstate[id] = pstate[id] || {v:0, qty:1};
+  const v = p.variants ? p.variants.opts[st.v] : null;
+  const unit = Math.round((p.price*(v&&v.mult?v.mult:1) + (v?v.dp:0))*100)/100;
+  const rel = P.filter(x=>x.cat===p.cat && x.id!==p.id).slice(0,4);
+  return `<div class="wrap fade-in"><div style="font-size:13px;padding-top:22px" class="grey"><a href="#tienda">Catálogo</a> › <a href="#c-${p.cat}">${CATS.find(c=>c.id===p.cat).n}</a></div>
+  <div class="pp"><div class="gal"><div class="main" id="galMain">${p.art()}</div></div>
+  <div><div class="tag" style="color:var(--gold);font-size:13px;font-weight:600">${esc(p.tag||'')}</div><h1>${esc(p.name)}</h1><div class="price">${p.from?'Desde ':''}${fmt(unit)} <span class="grey" style="font-size:13px">sin IVA</span></div>
+  <p class="lead">${esc(p.long||p.d)}</p>
+  ${p.variants?`<div class="opt"><h6>${p.variants.label}. <span>${esc(v.n)}</span></h6>${p.variants.opts[0].c?`<div class="swatches">${p.variants.opts.map((o,i)=>`<button class="swb ${i===st.v?'on':''}" style="background:${o.c}" data-v="${i}" title="${esc(o.n)}"></button>`).join('')}</div>`:`<div class="choices">${p.variants.opts.map((o,i)=>`<button class="choice ${i===st.v?'on':''}" data-v="${i}"><span><b>${esc(o.n)}</b></span><span class="cp">${fmt(Math.round((p.price*(o.mult||1)+o.dp)*100)/100)}</span></button>`).join('')}</div>`}</div>`:''}
+  <div class="opt"><h6>Cantidad</h6><div class="qty"><button data-q="-1">−</button><span>${st.qty}</span><button data-q="1">+</button></div></div>
+  <div class="buybox"><div class="row"><span class="grey">Total</span><span class="tot">${fmt(unit*st.qty)}</span></div><div class="grey" style="font-size:13px;text-align:right">o ${fmt2(unit*st.qty/12)}/mes en 12 meses al 0 % TAE</div><button class="btn block mt16" id="addBtn">Añadir al pedido</button><div class="grey mt8" style="font-size:13px">${unit*st.qty>=150?'Envío gratuito. ':''}Entrega en 24–48 h laborables.</div></div>
+  ${perks()}
+  <div class="acc"><details open><summary>Especificaciones</summary><div class="ab"><dl class="spec">${(p.specs||[]).map(s=>`<dt>${s[0]}</dt><dd>${s[1]}</dd>`).join('')}</dl></div></details>
+  <details><summary>Envío y devoluciones</summary><div class="ab">Envío en 24–48 h laborables a toda la península. Devolución gratuita en 14 días para productos sin usar y precintados. Los productos esterilizables usados no admiten devolución por motivos de bioseguridad.</div></details>
+  <details><summary>Compatibilidad</summary><div class="ab">Compatible con todas las unidades Confort Dent Essential, Pro y Premium. Reconocimiento automático por chip en el sillón.</div></details></div>
+  </div></div>
+  <div class="rowtitle">Combina <em>bien con</em></div><div class="pgrid" style="margin-bottom:70px">${rel.map(pcard).join('')}</div></div>`;
+}
+function bindProduct(id){
+  const p = byId(id); if(!p || p.cfg) return; const st = pstate[id];
+  document.querySelectorAll('[data-v]').forEach(b=>b.onclick=()=>{ st.v = +b.dataset.v; render(true); });
+  document.querySelectorAll('[data-q]').forEach(b=>b.onclick=()=>{ st.qty = Math.max(1, Math.min(99, st.qty + +b.dataset.q)); render(true); });
+  $('#addBtn').onclick = ()=>{ const v = p.variants ? p.variants.opts[st.v] : null; const unit = Math.round((p.price*(v&&v.mult?v.mult:1)+(v?v.dp:0))*100)/100;
+    addToBag({key:p.id+'|'+st.v, pid:p.id, cat:p.cat, name:p.name, price:unit, qty:st.qty, lines: v?[p.variants.label+': '+v.n]:[]}); };
+}
+function pageRangeInfo(p){
+  const r = RANGES[p.cfg], k = p.cfg, dark = k==='premium';
+  return `<section class="hero ${dark?'dark':'light'} fade-in" style="padding-bottom:30px"><div class="eyebrow">${esc(r.tag||'Confort Dent')}</div><h1 class="disp">${r.name}</h1><p class="sub ${dark?'grey':''} mt8">${r.lead}</p><div class="ctas"><a class="btn" href="#configurar-${k}">Configurar · Desde ${fmt(r.price)}</a><a class="btn ghost" href="#comparar">Comparar gamas</a></div><div class="art">${ART.chair({range:k, uph: dark?'#1f2326':'#0e4d5c', frame: dark?'#6c7378':'#eceff1', dark})}</div></section>
+  <section class="sec"><div class="narrow"><h2 class="h2 center">Lo que lo hace único.</h2><div class="pgrid mt40">${r.feats.map((f,i)=>`<div class="pcard" style="cursor:default;background:var(--bg)"><div style="font-size:44px;font-weight:200;color:var(--petrol)">0${i+1}</div><h4 class="mt8">${f}</h4></div>`).join('')}</div>
+  <h2 class="h2 center mt40" style="padding-top:30px">Incluido de serie.</h2><p class="center grey sub mt8">En todas las gamas, sin coste adicional.</p>
+  <div class="cmp mt40" style="grid-template-columns:repeat(3,1fr)">${[['Jeringa triple función','Agua, aire y spray'],['Tomas integradas','Contraángulo, ultrasonidos y turbina'],['Lavado continuo','Conductos y autolubricación interna'],['Receptor inalámbrico','Escáner intraoral nativo'],['Lámpara contactless','Encendido sin contacto'],['134 °C','Superficies 100 % autoclavables']].map(x=>`<div class="f"><b>${x[0]}</b><small>${x[1]}</small></div>`).join('')}</div>
+  <div class="center mt40"><a class="btn" href="#configurar-${k}">Configurar el tuyo</a></div></div></section>`;
+}
+
+/* ---------- configurator ---------- */
+let cfg = store.get('cd_cfg', null) || {range:'pro', uph:1, frame:0, tray:'higiene', extra:[], pedal:'std', logo:'', logoBg:0, care:false, stool:false};
+const LOGOBG = [{n:'Dorado champán',c:'#c9b48a'},{n:'Blanco',c:'#f5f5f7'},{n:'Verde salvia',c:'#9caf88'},{n:'Azul petróleo',c:'#78bec8'}];
+function cfgPrice(){
+  let t = RANGES[cfg.range].price;
+  t += cfg.extra.reduce((a,x)=>a+SPEC.find(s=>s.id===x).p,0);
+  if(cfg.pedal==='air' && cfg.range==='essential') t += 1290;
+  if(cfg.care) t += 4900;
+  if(cfg.stool) t += 1190;
+  return t;
+}
+function pageConfig(){
+  const r = RANGES[cfg.range], T = cfgPrice(), dark = cfg.range==='premium';
+  const trayC = SPEC.find(s=>s.id===cfg.tray).c;
+  return `<div class="wrap fade-in"><div class="storehead" style="padding:36px 0 18px"><div><div class="tag" style="color:var(--gold);font-size:13px;font-weight:600">Atelier de configuración</div><h1 class="disp">Diseña tu <em>${esc(r.short)}</em></h1></div><div class="help"><a href="#comparar">¿Qué gama es para ti? ›</a></div></div>
+  <div class="cfg"><div><div class="stage ${dark?'dark':''}" id="stage">${ART.chair({range:cfg.range, uph:UPH[cfg.uph].c, frame:FRAMES[cfg.frame].c, tray:trayC, logo:cfg.logo, logoBg:LOGOBG[cfg.logoBg].c, dark})}</div>
+    <div class="stagebar grey" style="font-size:13px">${esc(UPH[cfg.uph].n)} · Estructura ${esc(FRAMES[cfg.frame].n.toLowerCase())} · Bandeja ${esc(SPEC.find(s=>s.id===cfg.tray).n)}</div></div>
+  <div>
+    <div class="step-h">Gama.</div><div class="step-p">¿Qué gama se adapta mejor a ti?</div>
+    <div class="choices">${Object.entries(RANGES).map(([k,x])=>`<button class="choice ${cfg.range===k?'on':''}" data-range="${k}"><span><b>${x.short}</b><small>${x.feats.slice(0,2).join(' · ')}</small></span><span class="cp">${fmt(x.price)}</span></button>`).join('')}</div>
+    <div class="step-h">Tapicería. <span class="grey" style="font-weight:400">${esc(UPH[cfg.uph].n)}</span></div><div class="step-p">Cuero mate ${cfg.range==='essential'?'viscoelástico':'bio-viscoelástico con memoria térmica'}, resistente a desinfectantes.</div>
+    <div class="swatches">${UPH.map((u,i)=>`<button class="swb ${cfg.uph===i?'on':''}" style="background:${u.c}" data-uph="${i}" title="${u.n}"></button>`).join('')}</div>
+    <div class="step-h">Estructura. <span class="grey" style="font-weight:400">${esc(FRAMES[cfg.frame].n)}</span></div><div class="step-p">Aluminio anodizado con tratamiento antimicrobiano.</div>
+    <div class="swatches">${FRAMES.map((u,i)=>`<button class="swb ${cfg.frame===i?'on':''}" style="background:${u.c}" data-frame="${i}" title="${u.n}"></button>`).join('')}</div>
+    <div class="step-h">Bandeja incluida.</div><div class="step-p">Elige la especialidad con la que empezarás. Puedes añadir más cuando quieras.</div>
+    <div class="choices c2">${SPEC.map(s=>`<button class="choice ${cfg.tray===s.id?'on':''}" data-tray="${s.id}"><span style="display:flex;gap:10px;align-items:center"><span class="dot" style="background:${s.c};width:14px;height:14px"></span><b style="font-size:14.5px">${s.n}</b></span><span class="cp grey">Incluida</span></button>`).join('')}</div>
+    <div class="step-h">Bandejas adicionales.</div><div class="step-p">Ten todas tus especialidades listas desde el primer día.</div>
+    <div class="choices">${SPEC.filter(s=>s.id!==cfg.tray).map(s=>`<div class="check ${cfg.extra.includes(s.id)?'on':''}" data-extra="${s.id}"><span class="box">${ICON.check}</span><span class="txt"><b>${s.n}</b><small>${s.d.split(',').slice(0,2).join(',')}</small></span><span class="cp">+${fmt(s.p)}</span></div>`).join('')}</div>
+    <div class="step-h">Pedal.</div>
+    <div class="choices">${cfg.range==='essential'
+      ? `<button class="choice ${cfg.pedal==='std'?'on':''}" data-pedal="std"><span><b>Pedal multifunción con cable</b><small>Incluido de serie</small></span><span class="cp grey">Incluido</span></button><button class="choice ${cfg.pedal==='air'?'on':''}" data-pedal="air"><span><b>Pedal Air inalámbrico</b><small>Programable, baja latencia</small></span><span class="cp">+${fmt(1290)}</span></button>`
+      : `<button class="choice on"><span><b>${cfg.range==='premium'?'Pedal inalámbrico programable':'Pedal multifunción inalámbrico'}</b><small>Incluido en tu gama</small></span><span class="cp grey">Incluido</span></button>`}</div>
+    <div class="step-h">Tu marca, grabada.</div><div class="step-p">Grabamos el nombre o logotipo de tu clínica en la estructura y la tapicería. Sin coste.</div>
+    <input class="input" id="logoIn" maxlength="18" placeholder="Nombre de tu clínica" value="${esc(cfg.logo)}">
+    <div class="swatches mt16">${LOGOBG.map((u,i)=>`<button class="swb ${cfg.logoBg===i?'on':''}" style="background:${u.c}" data-lbg="${i}" title="${u.n}"></button>`).join('')}</div>
+    <div class="engr">Acabado del grabado: ${LOGOBG[cfg.logoBg].n}. Te enviaremos una prueba de diseño antes de fabricar.</div>
+    <div class="step-h">Completa tu gabinete.</div>
+    <div class="choices"><div class="check ${cfg.care?'on':''}" data-care="1"><span class="box">${ICON.check}</span><span class="txt"><b>ConfortCare+ 3 años</b><small>Mantenimiento, piezas, SAT en 24 h y sillón de sustitución.</small></span><span class="cp">+${fmt(4900)}</span></div>
+    <div class="check ${cfg.stool?'on':''}" data-stool="1"><span class="box">${ICON.check}</span><span class="txt"><b>Taburete ergonómico doctor</b><small>A juego con tu tapicería.</small></span><span class="cp">+${fmt(1190)}</span></div></div>
+    ${perks()}
+  </div></div></div>
+  <div class="summary"><div class="in"><div><div class="t">${fmt(T)}</div><div class="m">o ${fmt2(T/36)}/mes en 36 meses al 0 % TAE · Sin IVA · Entrega e instalación en 4–6 semanas</div></div><button class="btn" id="cfgAdd" style="padding:12px 30px">Añadir al pedido</button></div></div>`;
+}
+function bindConfig(){
+  const re = ()=>{ store.set('cd_cfg', cfg); render(true); };
+  document.querySelectorAll('[data-range]').forEach(b=>b.onclick=()=>{ cfg.range=b.dataset.range; if(cfg.range!=='essential') cfg.pedal='std'; re(); });
+  document.querySelectorAll('[data-uph]').forEach(b=>b.onclick=()=>{ cfg.uph=+b.dataset.uph; re(); });
+  document.querySelectorAll('[data-frame]').forEach(b=>b.onclick=()=>{ cfg.frame=+b.dataset.frame; re(); });
+  document.querySelectorAll('[data-lbg]').forEach(b=>b.onclick=()=>{ cfg.logoBg=+b.dataset.lbg; re(); });
+  document.querySelectorAll('[data-tray]').forEach(b=>b.onclick=()=>{ cfg.tray=b.dataset.tray; cfg.extra = cfg.extra.filter(x=>x!==cfg.tray); re(); });
+  document.querySelectorAll('[data-extra]').forEach(b=>b.onclick=()=>{ const x=b.dataset.extra; cfg.extra = cfg.extra.includes(x)? cfg.extra.filter(y=>y!==x) : [...cfg.extra, x]; re(); });
+  document.querySelectorAll('[data-pedal]').forEach(b=>b.onclick=()=>{ cfg.pedal=b.dataset.pedal; re(); });
+  const c1 = document.querySelector('[data-care]'); if(c1) c1.onclick=()=>{ cfg.care=!cfg.care; re(); };
+  const c2 = document.querySelector('[data-stool]'); if(c2) c2.onclick=()=>{ cfg.stool=!cfg.stool; re(); };
+  const li = $('#logoIn'); li.oninput = ()=>{ cfg.logo = li.value; store.set('cd_cfg', cfg);
+    const trayC = SPEC.find(s=>s.id===cfg.tray).c;
+    $('#stage').innerHTML = ART.chair({range:cfg.range, uph:UPH[cfg.uph].c, frame:FRAMES[cfg.frame].c, tray:trayC, logo:cfg.logo, logoBg:LOGOBG[cfg.logoBg].c, dark:cfg.range==='premium'}); };
+  $('#cfgAdd').onclick = ()=>{
+    const r = RANGES[cfg.range], trayC = SPEC.find(s=>s.id===cfg.tray).c;
+    const lines = [`Tapicería ${UPH[cfg.uph].n} · Estructura ${FRAMES[cfg.frame].n}`, `Bandeja incluida: ${SPEC.find(s=>s.id===cfg.tray).n}`];
+    if(cfg.extra.length) lines.push('Bandejas adicionales: ' + cfg.extra.map(x=>SPEC.find(s=>s.id===x).n).join(', '));
+    lines.push(cfg.range==='essential' ? (cfg.pedal==='air'?'Pedal Air inalámbrico':'Pedal multifunción con cable') : 'Pedal inalámbrico incluido');
+    if(cfg.logo.trim()) lines.push(`Grabado: «${cfg.logo.trim()}» (${LOGOBG[cfg.logoBg].n})`);
+    if(cfg.care) lines.push('ConfortCare+ 3 años');
+    if(cfg.stool) lines.push('Taburete ergonómico doctor');
+    addToBag({key:'chair-'+Date.now(), kind:'chair', cat:'sillones', name:r.name, price:cfgPrice(), qty:1, lines,
+      cfg:{range:cfg.range, uph:UPH[cfg.uph].c, frame:FRAMES[cfg.frame].c, tray:trayC, logo:cfg.logo, logoBg:LOGOBG[cfg.logoBg].c}});
+  };
+}
+
+/* ---------- custom tray ---------- */
+const TOOLS = [
+  {id:'turbina', n:'Turbina de fibra óptica', p:790, c:'#2f6fd6'}, {id:'micromotor', n:'Micromotor de inducción', p:1090, c:'#0e5b6b'},
+  {id:'ultrasonidos', n:'Ultrasonidos piezoeléctricos', p:890, c:'#78bec8'}, {id:'aeropulidor', n:'Aeropulidor glicina/bicarbonato', p:990, c:'#9fd3dc'},
+  {id:'endo', n:'Motor de endodoncia con torque', p:1390, c:'#e2a86e'}, {id:'apex', n:'Localizador de ápices', p:790, c:'#d18f4f'},
+  {id:'luz', n:'Lámpara de polimerizar', p:590, c:'#6fa8ff'}, {id:'jeringa', n:'Jeringa triple autoclavable', p:290, c:'#c7ced2'},
+  {id:'piezo', n:'Bisturí piezoeléctrico', p:1490, c:'#dc7878'}, {id:'peristaltica', n:'Bomba peristáltica de suero', p:890, c:'#e89a9a'},
+  {id:'bunsen', n:'Mechero Bunsen electrónico', p:490, c:'#f0a24a'}, {id:'scan', n:'Conexión directa escáner', p:390, c:'#9caf88'}];
+const ACCENTS = [{n:'Champán',c:'#c9b48a'},{n:'Salvia',c:'#9caf88'},{n:'Petróleo',c:'#0e5b6b'},{n:'Lavanda',c:'#b29cd6'},{n:'Coral',c:'#dc7878'},{n:'Grafito',c:'#4a5156'}];
+let tb = store.get('cd_tb', null) || {tools:['turbina','micromotor','jeringa'], acc:0, name:'', engr:''};
+const tbPrice = ()=> 2900 + tb.tools.reduce((a,id)=>a+TOOLS.find(t=>t.id===id).p,0);
+function pageTray(){
+  const T = tbPrice();
+  return `<div class="wrap fade-in"><div class="storehead" style="padding:36px 0 18px"><div><div class="tag" style="color:var(--gold);font-size:13px;font-weight:600">Personalizable</div><h1 class="disp">Bandeja <em>a medida</em></h1><p class="sub grey mt8">Hasta cinco instrumentos. Tu combinación. Tu nombre.</p></div></div>
+  <div class="cfg"><div><div class="stage" id="tstage">${ART.tray({accent:ACCENTS[tb.acc].c, tools: tb.tools.length? tb.tools.map(id=>TOOLS.find(t=>t.id===id).c) : []})}</div>
+  <div class="stagebar" style="flex-wrap:wrap">${tb.tools.map(id=>{const t=TOOLS.find(x=>x.id===id);return `<span class="chip" style="font-size:12.5px;padding:5px 12px"><span class="dot" style="display:inline-block;background:${t.c};width:9px;height:9px;margin-right:6px"></span>${t.n}</span>`}).join('')}</div>
+  ${tb.engr?`<div class="center engr">Grabado: «${esc(tb.engr)}»</div>`:''}</div>
+  <div><div class="step-h">Instrumentos.</div><div class="step-p">Selecciona entre 1 y 5. Base de bandeja con anclaje Plug & Play: ${fmt(2900)}.</div>
+  <div class="toolgrid">${TOOLS.map(t=>{const on=tb.tools.includes(t.id), dis=!on&&tb.tools.length>=5; return `<div class="check ${on?'on':''}" data-tool="${t.id}" style="${dis?'opacity:.45;cursor:not-allowed':''}"><span class="box">${ICON.check}</span><span class="txt"><b style="font-size:14px">${t.n}</b><small>+${fmt(t.p)}</small></span></div>`}).join('')}</div>
+  <div class="slotinfo">${tb.tools.length} de 5 posiciones ocupadas.</div>
+  <div class="step-h">Color de acento. <span class="grey" style="font-weight:400">${ACCENTS[tb.acc].n}</span></div>
+  <div class="swatches">${ACCENTS.map((a,i)=>`<button class="swb ${tb.acc===i?'on':''}" style="background:${a.c}" data-acc="${i}" title="${a.n}"></button>`).join('')}</div>
+  <div class="step-h">Nombre y grabado.</div><div class="step-p">Aparecerá en la pantalla del sillón al anclar la bandeja y grabado en el soporte.</div>
+  <div class="formgrid"><div><label class="lab">Nombre de la bandeja</label><input class="input" id="tbName" maxlength="24" placeholder="Ej. Martes Dra. Ruiz" value="${esc(tb.name)}"></div><div><label class="lab">Grabado (opcional)</label><input class="input" id="tbEngr" maxlength="18" placeholder="Iniciales o clínica" value="${esc(tb.engr)}"></div></div>
+  ${perks()}</div></div></div>
+  <div class="summary"><div class="in"><div><div class="t">${fmt(T)}</div><div class="m">Fabricación en 2–3 semanas · Sin IVA · Compatible con todas las gamas</div></div><button class="btn" id="tbAdd" style="padding:12px 30px" ${tb.tools.length?'':'disabled'}>Añadir al pedido</button></div></div>`;
+}
+function bindTray(){
+  const re = ()=>{ store.set('cd_tb', tb); render(true); };
+  document.querySelectorAll('[data-tool]').forEach(b=>b.onclick=()=>{ const id=b.dataset.tool;
+    if(tb.tools.includes(id)) tb.tools = tb.tools.filter(x=>x!==id); else if(tb.tools.length<5) tb.tools.push(id); else { toast('Máximo 5 instrumentos por bandeja'); return; } re(); });
+  document.querySelectorAll('[data-acc]').forEach(b=>b.onclick=()=>{ tb.acc=+b.dataset.acc; re(); });
+  $('#tbName').oninput = e=>{ tb.name = e.target.value; store.set('cd_tb', tb); };
+  $('#tbEngr').onchange = e=>{ tb.engr = e.target.value; re(); };
+  $('#tbAdd').onclick = ()=>{ if(!tb.tools.length) return;
+    addToBag({key:'tray-'+Date.now(), kind:'tray', cat:'bandejas', name:'Bandeja a medida' + (tb.name.trim()?' · '+tb.name.trim():''), price:tbPrice(), qty:1,
+      lines:[tb.tools.map(id=>TOOLS.find(t=>t.id===id).n).join(', '), 'Acento '+ACCENTS[tb.acc].n + (tb.engr.trim()?' · Grabado «'+tb.engr.trim()+'»':'')],
+      cfg:{accent:ACCENTS[tb.acc].c, tools:tb.tools.map(id=>TOOLS.find(t=>t.id===id).c)}}); };
+}
+
+/* ---------- compare ---------- */
+function pageCompare(){
+  const rows = [
+    ['Precio','14.500 €','17.500 €','21.500 €'],
+    ['Tapicería','Viscoelástica mate','Bio-viscoelástica con memoria térmica','Bio-viscoelástica con memoria térmica'],
+    ['Masaje lumbar paciente','—','Sí','Sí'],
+    ['Lámpara operatoria','Contactless por proximidad','Contactless por proximidad','Air-Gesture, cero contacto'],
+    ['Interfaz','Botonera física sellada','Híbrida táctil-física','100 % digital en pantalla'],
+    ['Pantallas','—','Auxiliar articulada','Doble pantalla HD (paciente + clínica)'],
+    ['Iluminación ambiental','—','LED regulable','LED regulable'],
+    ['Pedal','Multifunción con cable','Inalámbrico baja latencia','Inalámbrico programable'],
+    ['IA','Gestión de ciclos','Gestión de ciclos','Predictiva de ciclos y ergonomía'],
+    ['Bandeja incluida','1 a elegir','1 a elegir','1 a elegir'],
+    ['Personalización de marca','Gratis','Gratis','Gratis']];
+  const ks = ['essential','pro','premium'];
+  return `<div class="narrow fade-in" style="padding-top:50px;padding-bottom:80px"><h1 class="disp center">Tres gamas.<br><em>Una filosofía.</em></h1>
+  <div class="cmp mt40">${ks.map((k,i)=>`<div class="col"><div style="background:var(--bg);border-radius:18px;padding:10px">${ART.chair({range:k, uph:['#2E3236','#0e4d5c','#1f2326'][i]})}</div><div class="tag" style="color:var(--gold);font-size:12px;font-weight:600;margin-top:14px;min-height:15px">${RANGES[k].tag}</div><h3 style="margin-top:4px">${RANGES[k].short}</h3><div class="pr">Desde ${fmt(RANGES[k].price)}</div><a class="btn sm" href="#configurar-${k}">Comprar</a>
+  ${rows.slice(1).map(r=>`<div class="f">${r[i+1]==='—'?'<span class="grey">—</span>':esc(r[i+1])}<small>${esc(r[0])}</small></div>`).join('')}</div>`).join('')}</div></div>`;
+}
+
+/* ---------- bag page ---------- */
+function pageBag(){
+  if(!bag.length) return `<div class="empty fade-in"><h1 class="big" style="font-size:40px">Tu selección está vacía.</h1><p class="sub grey mt16">Descubre todo lo que Confort Dent puede hacer por tu clínica.</p><div class="mt24"><a class="btn" href="#tienda">Volver al catálogo</a></div></div>`;
+  const t = totals();
+  return `<div class="narrow fade-in" style="padding-top:50px;padding-bottom:70px"><h1 class="disp center">Tu <em>selección</em></h1><p class="center grey mt8">Envío e instalación gratuitos${t.hasChair?'':' a partir de 150 €'}.</p><div class="center mt24"><a class="btn" href="#pago" style="padding:12px 50px">Finalizar pedido</a></div>
+  <div class="mt40" style="border-top:1px solid var(--line)">${bag.map((b,i)=>`<div class="bagi"><div class="im">${itemArt(b)}</div><div><h4>${esc(b.name)}</h4><ul>${(b.lines||[]).map(l=>`<li>${esc(l)}</li>`).join('')}</ul><div class="mt16" style="font-size:13.5px">${b.cat==='sillones'?'Entrega e instalación en 4–6 semanas':b.kind==='tray'?'Fabricación en 2–3 semanas':'Envío en 24–48 h'}</div></div>
+  <div class="rt"><div class="qty"><button data-bq="${i}" data-d="-1">−</button><span>${b.qty}</span><button data-bq="${i}" data-d="1">+</button></div><div class="p">${fmt(b.price*b.qty)}</div><a data-rm="${i}" style="font-size:14px">Eliminar</a></div></div>`).join('')}</div>
+  <div class="totals">
+    <div class="r"><span>Subtotal</span><span>${fmt2(t.sub)}</span></div>
+    ${t.disc?`<div class="r" style="color:#0b8a5a"><span>Código ${esc(promo)} · ${PROMOS[promo].txt}</span><span>−${fmt2(t.disc)}</span></div>`:''}
+    ${t.cr?`<div class="r" style="color:#0b8a5a"><span>Crédito Recíclate <a data-rmcredit style="font-size:13px">Quitar</a></span><span>−${fmt2(t.cr)}</span></div>`:''}
+    <div class="r"><span>Envío e instalación</span><span>${t.ship?fmt2(t.ship):'Gratis'}</span></div>
+    <div class="r"><span>IVA (21 %)</span><span>${fmt2(t.iva)}</span></div>
+    <div class="r t"><span>Total</span><span>${fmt2(t.total)}</span></div>
+    <div class="grey" style="font-size:13.5px;text-align:right;margin-top:4px">o ${fmt2(t.total/36)}/mes en 36 meses al 0 % TAE</div>
+    <div class="mt24"><label class="lab">¿Tienes un código promocional?</label><div class="promo"><input class="input" id="promoIn" placeholder="Código" value="${promo?esc(promo):''}" style="text-transform:uppercase"><button class="btn ghost" id="promoBtn" style="border-radius:12px;padding:0 22px">${promo?'Quitar':'Aplicar'}</button></div><div id="promoMsg" class="errmsg" style="display:none"></div></div>
+    ${!credit?`<div class="note mt24">${ICON.leaf} &nbsp;¿Tienes un sillón antiguo? <a href="#reciclate">Valóralo con Recíclate</a> y aplica el crédito a este pedido.</div>`:''}
+    <a class="btn block mt24" href="#pago">Finalizar pedido</a>
+  </div></div>`;
+}
+function bindBag(){
+  document.querySelectorAll('[data-bq]').forEach(b=>b.onclick=()=>{ const i=+b.dataset.bq; bag[i].qty = Math.max(1, Math.min(99, bag[i].qty + +b.dataset.d)); saveBag(); render(true); });
+  document.querySelectorAll('[data-rm]').forEach(b=>b.onclick=()=>{ bag.splice(+b.dataset.rm,1); saveBag(); render(true); });
+  const rc = document.querySelector('[data-rmcredit]'); if(rc) rc.onclick=()=>{ credit=0; saveBag(); render(true); };
+  const pb = $('#promoBtn'); if(pb) pb.onclick = ()=>{
+    if(promo){ promo=null; saveBag(); render(true); return; }
+    const v = $('#promoIn').value.trim().toUpperCase(); const m = $('#promoMsg');
+    if(PROMOS[v]){ promo=v; saveBag(); render(true); toast('Código aplicado: '+PROMOS[v].txt); }
+    else { m.textContent = 'Este código no es válido o ha caducado.'; m.style.display='block'; $('#promoIn').classList.add('err'); }
+  };
+}
+
+/* ---------- checkout ---------- */
+let co = store.get('cd_co', null) || {step:1, f:{}, pay:'fin36', date:null};
+function coSummary(){
+  const t = totals();
+  return `<div class="cobox"><div style="font-size:19px;font-weight:600;margin-bottom:8px">Resumen del pedido</div>${bag.map(b=>`<div class="li"><div class="mi">${itemArt(b)}</div><div class="n">${esc(b.name)}${b.qty>1?` ×${b.qty}`:''}<br><small>${esc((b.lines||[])[0]||'')}</small></div><div class="p">${fmt(b.price*b.qty)}</div></div>`).join('')}
+  <div class="totals" style="padding:14px 0 0;max-width:none"><div class="r"><span>Subtotal</span><span>${fmt2(t.sub)}</span></div>${t.disc?`<div class="r" style="color:#0b8a5a"><span>Descuento</span><span>−${fmt2(t.disc)}</span></div>`:''}${t.cr?`<div class="r" style="color:#0b8a5a"><span>Crédito Recíclate</span><span>−${fmt2(t.cr)}</span></div>`:''}<div class="r"><span>Envío e instalación</span><span>${t.ship?fmt2(t.ship):'Gratis'}</span></div><div class="r"><span>IVA (21 %)</span><span>${fmt2(t.iva)}</span></div><div class="r t" style="font-size:20px"><span>Total</span><span>${fmt2(t.total)}</span></div></div></div>`;
+}
+function stepsBar(){ const S=['Datos de la clínica','Entrega','Pago','Revisión']; return `<div class="steps">${S.map((s,i)=>`<span class="${co.step===i+1?'on':co.step>i+1?'done':''}">${i+1}. ${s}</span>${i<3?'<span>›</span>':''}`).join('')}</div>`; }
+function nextDays(){ const out=[]; const d=new Date(); d.setDate(d.getDate()+ (bag.some(b=>b.cat==='sillones')?30:2)); while(out.length<14){ out.push(new Date(d)); d.setDate(d.getDate()+1); } return out; }
+const FIELDS1 = [['clinica','Nombre de la clínica','full'],['cif','CIF / NIF',''],['colegiado','Nº de colegiado del responsable',''],['nombre','Nombre',''],['apellidos','Apellidos',''],['email','Correo electrónico',''],['tel','Teléfono','']];
+const FIELDS2 = [['dir','Dirección','full'],['cp','Código postal',''],['ciudad','Ciudad',''],['prov','Provincia',''],['acceso','Indicaciones de acceso (planta, ascensor…)','full']];
+function field(f){ const v = co.f[f[0]]||''; return `<div class="${f[2]}"><label class="lab">${f[1]}</label><input class="input" data-f="${f[0]}" value="${esc(v)}" ${f[0]==='acceso'?'':'required'}><div class="errmsg" style="display:none"></div></div>`; }
+const PAYS = [
+  {id:'fin36', n:'Financiación 36 meses al 0 % TAE', s:'Estudio en 24 h. Sin comisión de apertura.', m:36},
+  {id:'fin12', n:'Financiación 12 meses al 0 % TAE', s:'Aprobación inmediata para profesionales colegiados.', m:12},
+  {id:'renting', n:'Renting 60 meses', s:'Cuota deducible. Incluye ConfortCare+ durante el contrato.', m:60, r:1.08},
+  {id:'transfer', n:'Transferencia bancaria', s:'Recibirás los datos bancarios y la factura proforma por correo.'},
+  {id:'install', n:'Pago a la instalación', s:'30 % de reserva por transferencia y resto el día de la instalación.'}];
+function pageCheckout(){
+  if(!bag.length) return pageBag();
+  let body = '';
+  if(co.step===1) body = `<div class="cohead">¿Para qué clínica es el pedido?</div><div class="formgrid">${FIELDS1.map(field).join('')}</div><button class="btn block mt24" id="coNext">Continuar a la entrega</button>`;
+  if(co.step===2){ const days = nextDays(); body = `<div class="cohead">¿Dónde lo instalamos?</div><div class="formgrid">${FIELDS2.map(field).join('')}</div>
+    <div class="cohead mt40" style="font-size:22px">${bag.some(b=>b.cat==='sillones')?'Elige el día de instalación':'Elige el día de entrega'}</div>
+    <div class="calendar">${days.map(d=>{const k=d.toISOString().slice(0,10), we=d.getDay()===0||d.getDay()===6; return `<button data-day="${k}" class="${co.date===k?'on':''}" ${we?'disabled':''}><small>${d.toLocaleDateString('es-ES',{weekday:'short'})}</small>${d.getDate()}<small>${d.toLocaleDateString('es-ES',{month:'short'})}</small></button>`}).join('')}</div>
+    <div class="errmsg" id="dayErr" style="display:none">Elige un día para continuar.</div>
+    <div style="display:flex;gap:12px" class="mt24"><button class="btn ghost" id="coBack" style="border-radius:12px">Atrás</button><button class="btn block" id="coNext">Continuar al pago</button></div>`; }
+  if(co.step===3){ const t = totals(); body = `<div class="cohead">¿Cómo quieres pagar?</div><div class="choices">${PAYS.map(p=>`<button class="choice ${co.pay===p.id?'on':''}" data-pay="${p.id}"><span><b>${p.n}</b><small>${p.s}</small></span><span class="cp">${p.m?fmt2(t.total*(p.r||1)/p.m)+'/mes':''}</span></button>`).join('')}</div>
+    <div class="note mt24">Tras confirmar el pedido, nuestro equipo financiero te enviará la documentación a <b>${esc(co.f.email||'tu correo')}</b> para completar el proceso de forma segura.</div>
+    <div style="display:flex;gap:12px" class="mt24"><button class="btn ghost" id="coBack" style="border-radius:12px">Atrás</button><button class="btn block" id="coNext">Revisar pedido</button></div>`; }
+  if(co.step===4){ const p = PAYS.find(x=>x.id===co.pay), d = co.date? new Date(co.date).toLocaleDateString('es-ES',{weekday:'long', day:'numeric', month:'long'}):'';
+    body = `<div class="cohead">Revisa tu pedido.</div>
+    <div class="acc" style="margin-top:0"><details open><summary>Clínica <a data-go="1" style="font-size:14px;font-weight:400">Editar</a></summary><div class="ab">${esc(co.f.clinica)} · ${esc(co.f.cif)}<br>${esc(co.f.nombre)} ${esc(co.f.apellidos)} · Colegiado ${esc(co.f.colegiado)}<br>${esc(co.f.email)} · ${esc(co.f.tel)}</div></details>
+    <details open><summary>Entrega <a data-go="2" style="font-size:14px;font-weight:400">Editar</a></summary><div class="ab">${esc(co.f.dir)}, ${esc(co.f.cp)} ${esc(co.f.ciudad)} (${esc(co.f.prov)})<br>${bag.some(b=>b.cat==='sillones')?'Instalación':'Entrega'}: ${d}</div></details>
+    <details open><summary>Pago <a data-go="3" style="font-size:14px;font-weight:400">Editar</a></summary><div class="ab">${p.n}</div></details></div>
+    <div class="check mt24" id="terms"><span class="box">${ICON.check}</span><span class="txt" style="font-size:14px">Acepto las condiciones de venta y la política de privacidad de Confort Dent S.L.</span></div><div class="errmsg" id="termsErr" style="display:none">Debes aceptar las condiciones para continuar.</div>
+    <div style="display:flex;gap:12px" class="mt24"><button class="btn ghost" id="coBack" style="border-radius:12px">Atrás</button><button class="btn block" id="coPlace">Realizar pedido</button></div>`; }
+  return `<div class="wrap fade-in">${stepsBar()}<div class="co"><div>${body}</div>${coSummary()}</div></div>`;
+}
+function validate(fields){
+  let ok = true;
+  fields.forEach(f=>{ if(f[0]==='acceso') return; const el = document.querySelector(`[data-f="${f[0]}"]`); const v = el.value.trim(); let msg = '';
+    if(!v) msg = 'Este campo es obligatorio.';
+    else if(f[0]==='email' && !/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(v)) msg = 'Introduce un correo electrónico válido.';
+    else if(f[0]==='tel' && v.replace(/\D/g,'').length<9) msg = 'Introduce un teléfono válido.';
+    else if(f[0]==='cp' && !/^\d{5}$/.test(v)) msg = 'El código postal debe tener 5 dígitos.';
+    else if(f[0]==='cif' && !/^[A-Za-z0-9]{8,10}$/.test(v.replace(/[\s-]/g,''))) msg = 'Introduce un CIF o NIF válido.';
+    const e = el.nextElementSibling; e.textContent = msg; e.style.display = msg?'block':'none'; el.classList.toggle('err', !!msg); if(msg) ok = false; });
+  if(!ok){ const first = document.querySelector('.input.err'); if(first) first.focus(); }
+  return ok;
+}
+function bindCheckout(){
+  if(!bag.length){ bindBag(); return; }
+  const save = ()=>store.set('cd_co', co);
+  document.querySelectorAll('[data-f]').forEach(el=>el.oninput=()=>{ co.f[el.dataset.f] = el.value; save(); });
+  document.querySelectorAll('[data-day]').forEach(b=>b.onclick=()=>{ co.date=b.dataset.day; save(); render(true); });
+  document.querySelectorAll('[data-pay]').forEach(b=>b.onclick=()=>{ co.pay=b.dataset.pay; save(); render(true); });
+  document.querySelectorAll('[data-go]').forEach(b=>b.onclick=(e)=>{ e.preventDefault(); co.step=+b.dataset.go; save(); render(); });
+  const back = $('#coBack'); if(back) back.onclick = ()=>{ co.step--; save(); render(); };
+  const next = $('#coNext'); if(next) next.onclick = ()=>{
+    if(co.step===1 && !validate(FIELDS1)) return;
+    if(co.step===2){ const ok = validate(FIELDS2); if(!co.date){ $('#dayErr').style.display='block'; return; } if(!ok) return; }
+    co.step++; save(); render(); };
+  const terms = $('#terms'); if(terms) terms.onclick = ()=>terms.classList.toggle('on');
+  const place = $('#coPlace'); if(place) place.onclick = ()=>{
+    if(!terms.classList.contains('on')){ $('#termsErr').style.display='block'; return; }
+    place.disabled = true; place.textContent = 'Procesando…';
+    setTimeout(()=>{
+      const t = totals(); const num = 'CD-' + new Date().getFullYear() + '-' + String(Math.floor(10000+Math.random()*89999));
+      const order = {num, items:bag, t, f:co.f, date:co.date, pay:co.pay, when:Date.now()};
+      store.set('cd_last', order);
+      bag = []; promo = null; credit = 0; saveBag(); co = {step:1, f:co.f, pay:'fin36', date:null}; save();
+      location.hash = 'pedido';
+    }, 1400);
+  };
+}
+function pageOrder(){
+  const o = store.get('cd_last', null) || window._lastOrder;
+  if(!o) return pageBag();
+  const p = PAYS.find(x=>x.id===o.pay), chair = o.items.some(b=>b.cat==='sillones');
+  const d = o.date ? new Date(o.date).toLocaleDateString('es-ES',{weekday:'long', day:'numeric', month:'long'}) : '';
+  return `<div class="narrow fade-in" style="padding-bottom:80px"><div class="ok"><div class="ring"><svg width="40" height="40" viewBox="0 0 40 40"><path d="M10 21l7 7 14-15" stroke="#0b8a5a" stroke-width="3.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+  <h1 class="big" style="font-size:44px">Gracias, ${esc(o.f.nombre||'')}.<br>Tu pedido está confirmado.</h1><p class="sub grey mt16">Número de pedido <b style="color:var(--ink)">${o.num}</b></p><p class="grey mt8">Hemos enviado la confirmación a ${esc(o.f.email||'')}.</p></div>
+  <div class="timeline"><div class="tl done"><div class="c">${ICON.check}</div>Pedido confirmado<small>Hoy</small></div><div class="tl"><div class="c"></div>${chair?'Fabricación y grabado':'Preparación'}<small>${chair?'3–4 semanas':'24 h'}</small></div><div class="tl"><div class="c"></div>Envío<small>${chair?'Transporte especializado':'24–48 h'}</small></div><div class="tl"><div class="c"></div>${chair?'Instalación y formación':'Entrega'}<small>${esc(d)}</small></div></div>
+  <div class="note"><b>Pago:</b> ${p?p.n:''}. ${o.pay.startsWith('fin')||o.pay==='renting'?'Nuestro equipo financiero se pondrá en contacto contigo en 24 h laborables.':'Recibirás la factura proforma en tu correo.'}<br><b>Entrega en:</b> ${esc(o.f.clinica||'')}, ${esc(o.f.dir||'')}, ${esc(o.f.ciudad||'')}.</div>
+  <div class="mt40" style="border-top:1px solid var(--line)">${o.items.map(b=>`<div class="bagi" style="grid-template-columns:110px 1fr auto"><div class="im">${itemArt(b)}</div><div><h4 style="font-size:17px">${esc(b.name)}${b.qty>1?' ×'+b.qty:''}</h4><ul>${(b.lines||[]).map(l=>`<li>${esc(l)}</li>`).join('')}</ul></div><div class="rt"><div class="p" style="font-size:17px">${fmt(b.price*b.qty)}</div></div></div>`).join('')}</div>
+  <div class="totals"><div class="r t"><span>Total pagado</span><span>${fmt2(o.t.total)}</span></div></div>
+  <div class="center mt24"><a class="btn" href="#tienda">Volver al catálogo</a></div></div>`;
+}
+
+/* ---------- reciclate ---------- */
+let rc = {age:'5-10', state:'bueno', type:'sillon', qty:1, value:null};
+function rcValue(){ const base = {sillon:900, rotatorios:80, autoclave:350}[rc.type]; const a = {'0-5':1.6,'5-10':1,'10-15':.6,'15+':.35}[rc.age]; const s = {'excelente':1.25,'bueno':1,'funcional':.7,'averiado':.35}[rc.state]; return Math.round(base*a*s*rc.qty/10)*10; }
+function pageRecycle(){
+  return `<section class="hero light fade-in" style="background:#eef3ea;padding-bottom:40px"><div class="eyebrow" style="color:#5b7a4a">Plan Recíclate</div><h1 class="disp">Nada <em>se pierde.</em></h1><p class="sub mt8">Entrega tu equipo antiguo. Lo recogemos, lo reacondicionamos<br>y te damos crédito para tu nueva compra.</p><div class="art" style="max-width:260px;margin-top:20px">${ART.recycle()}</div></section>
+  <section class="sec"><div class="narrow" style="max-width:720px"><h2 class="h2 center">Valora tu equipo en segundos.</h2>
+  <div class="opt"><h6>¿Qué quieres entregar?</h6><div class="choices">${[['sillon','Sillón dental completo'],['rotatorios','Turbinas y contraángulos'],['autoclave','Autoclave']].map(([k,v])=>`<button class="choice ${rc.type===k?'on':''}" data-rt="${k}"><b>${v}</b></button>`).join('')}</div></div>
+  <div class="opt"><h6>Antigüedad</h6><div class="slots">${['0-5','5-10','10-15','15+'].map(k=>`<button class="slot ${rc.age===k?'on':''}" data-ra="${k}"><b>${k}</b>años</button>`).join('')}</div></div>
+  <div class="opt"><h6>Estado</h6><div class="slots">${['excelente','bueno','funcional','averiado'].map(k=>`<button class="slot ${rc.state===k?'on':''}" data-rs="${k}" style="text-transform:capitalize">${k}</button>`).join('')}</div></div>
+  ${rc.type!=='sillon'?`<div class="opt"><h6>Unidades</h6><div class="qty"><button data-rq="-1">−</button><span>${rc.qty}</span><button data-rq="1">+</button></div></div>`:''}
+  <div class="buybox center" style="margin-top:36px"><div class="grey">Crédito estimado</div><div style="font-size:56px;font-weight:600;letter-spacing:-.03em">${fmt(rcValue())}</div><div class="grey" style="font-size:13px">Recogida gratuita. Gestión autorizada de residuos RAEE.</div><button class="btn block mt24" id="rcApply">${credit?'Actualizar crédito en mi pedido':'Aplicar a mi pedido'}</button></div>
+  <div class="pgrid mt40">${[['01','Valora','Responde tres preguntas y conoce tu crédito al instante.'],['02','Compra','El crédito se descuenta directamente de tu pedido.'],['03','Recogemos','El día de la instalación retiramos tu equipo antiguo.'],['04','Renace','Reacondicionamos o reciclamos cada material.']].map(x=>`<div class="pcard" style="cursor:default;background:var(--bg)"><div style="font-size:40px;font-weight:200;color:#5b7a4a">${x[0]}</div><h4>${x[1]}</h4><div class="d">${x[2]}</div></div>`).join('')}</div></div></section>`;
+}
+function bindRecycle(){
+  document.querySelectorAll('[data-rt]').forEach(b=>b.onclick=()=>{ rc.type=b.dataset.rt; rc.qty=1; render(true); });
+  document.querySelectorAll('[data-ra]').forEach(b=>b.onclick=()=>{ rc.age=b.dataset.ra; render(true); });
+  document.querySelectorAll('[data-rs]').forEach(b=>b.onclick=()=>{ rc.state=b.dataset.rs; render(true); });
+  document.querySelectorAll('[data-rq]').forEach(b=>b.onclick=()=>{ rc.qty=Math.max(1,Math.min(20,rc.qty + +b.dataset.rq)); render(true); });
+  $('#rcApply').onclick = ()=>{ credit = rcValue(); saveBag(); toast('Crédito Recíclate de '+fmt(credit)+' aplicado a tu pedido'); render(true); };
+}
+
+/* ---------- experiencias ---------- */
+let ex = {city:'Madrid', day:null, slot:null, done:null};
+const CITIES = {Madrid:'Calle de Serrano, 41', Barcelona:'Passeig de Gràcia, 55', Valencia:'Calle Colón, 18', Sevilla:'Avenida de la Constitución, 12'};
+function pageExp(){
+  if(ex.done) return `<div class="narrow fade-in"><div class="ok"><div class="ring"><svg width="40" height="40" viewBox="0 0 40 40"><path d="M10 21l7 7 14-15" stroke="#0b8a5a" stroke-width="3.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></div><h1 class="big" style="font-size:44px">Te esperamos.</h1><p class="sub grey mt16">${esc(ex.done)}</p><div class="mt24"><a class="btn" href="#tienda">Volver a la tienda</a> &nbsp; <a class="btn ghost" id="exAgain">Hacer otra reserva</a></div></div></div>`;
+  const days = []; const d = new Date(); d.setDate(d.getDate()+3); while(days.length<7){ if(d.getDay()!==0) days.push(new Date(d)); d.setDate(d.getDate()+1); }
+  return `<section class="hero dark fade-in" style="padding-bottom:50px"><div class="eyebrow">Experiencias Pop-Up</div><h1 class="disp">Siéntelo antes<br><em>de tenerlo.</em></h1><p class="sub grey mt8">Una hora en privado con un especialista. Prueba las tres gamas,<br>cambia bandejas y diseña tu sillón en directo.</p></section>
+  <section class="sec"><div class="narrow" style="max-width:760px">
+  <div class="opt" style="margin-top:0"><h6>Ciudad</h6><div class="choices c2">${Object.entries(CITIES).map(([c,a])=>`<button class="choice ${ex.city===c?'on':''}" data-city="${c}"><span><b>${c}</b><small>${a}</small></span></button>`).join('')}</div></div>
+  <div class="opt"><h6>Día</h6><div class="calendar">${days.map(x=>{const k=x.toISOString().slice(0,10);return `<button data-eday="${k}" class="${ex.day===k?'on':''}"><small>${x.toLocaleDateString('es-ES',{weekday:'short'})}</small>${x.getDate()}<small>${x.toLocaleDateString('es-ES',{month:'short'})}</small></button>`}).join('')}</div></div>
+  <div class="opt"><h6>Hora</h6><div class="slots">${['10:00','11:30','13:00','16:30','18:00','19:30'].map((s,i)=>`<button class="slot ${ex.slot===s?'on':''}" data-slot="${s}" ${ex.day && (ex.day.charCodeAt(9)+i)%5===0?'disabled style="opacity:.35"':''}>${s}</button>`).join('')}</div></div>
+  <div class="opt"><h6>Tus datos</h6><div class="formgrid"><div><label class="lab">Nombre y apellidos</label><input class="input" id="exName"></div><div><label class="lab">Clínica</label><input class="input" id="exClinic"></div><div class="full"><label class="lab">Correo electrónico</label><input class="input" id="exMail"></div></div></div>
+  <div class="errmsg" id="exErr" style="display:none"></div>
+  <button class="btn block mt24" id="exBook">Reservar experiencia</button></div></section>`;
+}
+function bindExp(){
+  const again = $('#exAgain'); if(again){ again.onclick = ()=>{ ex = {city:'Madrid', day:null, slot:null, done:null}; render(); }; return; }
+  document.querySelectorAll('[data-city]').forEach(b=>b.onclick=()=>{ ex.city=b.dataset.city; render(true); });
+  document.querySelectorAll('[data-eday]').forEach(b=>b.onclick=()=>{ ex.day=b.dataset.eday; ex.slot=null; render(true); });
+  document.querySelectorAll('[data-slot]').forEach(b=>b.onclick=()=>{ if(b.disabled) return; ex.slot=b.dataset.slot; render(true); });
+  $('#exBook').onclick = ()=>{ const n=$('#exName').value.trim(), m=$('#exMail').value.trim(), e=$('#exErr');
+    if(!ex.day||!ex.slot){ e.textContent='Elige un día y una hora.'; e.style.display='block'; return; }
+    if(!n||!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(m)){ e.textContent='Introduce tu nombre y un correo válido.'; e.style.display='block'; return; }
+    const dd = new Date(ex.day).toLocaleDateString('es-ES',{weekday:'long', day:'numeric', month:'long'});
+    ex.done = `${n}, tu experiencia en Confort Dent ${ex.city} (${CITIES[ex.city]}) es el ${dd} a las ${ex.slot}. Hemos enviado los detalles a ${m}.`; render(); };
+}
+
+/* ---------- soporte ---------- */
+function pageSupport(){
+  const faq = [
+   ['¿Cuánto tarda la entrega de un sillón?','Entre 4 y 6 semanas desde la confirmación, incluyendo el grabado personalizado. El día de la instalación nuestros técnicos montan, calibran y forman a tu equipo.'],
+   ['¿Las bandejas son compatibles con todas las gamas?','Sí. Todas las bandejas Confort Dent usan el anclaje Plug & Play universal y se reconocen automáticamente por chip en Essential, Pro y Premium.'],
+   ['¿Qué incluye ConfortCare+?','Dos revisiones preventivas al año, piezas y mano de obra, SAT prioritario en 24 h laborables y sillón de sustitución si la reparación supera 48 h.'],
+   ['¿Cómo funciona la renovación de ciclos?','Los componentes inteligentes registran sus ciclos de uso. Al completarlos, el sistema solicita su recalibración o sustitución para garantizar la seguridad clínica. Se gestiona en remoto en minutos.'],
+   ['¿Puedo financiar mi compra?','Sí, hasta 36 meses al 0 % TAE o renting a 60 meses para clínicas y profesionales sanitarios. Sujeto a aprobación.'],
+   ['¿Qué normativa cumplen los equipos?','Todos nuestros equipos llevan marcado CE como productos sanitarios conforme al Reglamento (UE) 2017/745 y se ensamblan en España en instalaciones con licencia sanitaria.'],
+   ['¿Tenéis condiciones para facultades?','Sí. Disponemos de convenios para universidades y centros de formación en Odontología e Higiene Bucodental.']];
+  return `<div class="narrow fade-in" style="padding:56px 22px 80px"><h1 class="disp center">Siempre <em>a tu lado.</em></h1><p class="sub grey center mt8">Estamos aquí para ayudarte. Siempre.</p>
+  <div class="pgrid mt40">${[[ICON.tool,'Solicitar asistencia técnica','Un técnico en tu clínica en 24–48 h.','sat'],[ICON.card,'Financiación','Estudio sin compromiso en 24 h.','fin'],[ICON.grad,'Formación','Sesiones para todo tu equipo.','p-formacion'],[ICON.leaf,'Recíclate','Valora tu equipo antiguo.','reciclate']].map(x=>`<a class="pcard" href="${x[3]==='sat'||x[3]==='fin'?'javascript:void 0':'#'+x[3]}" data-sup="${x[3]}" style="background:var(--bg)"><div style="width:40px;height:40px">${x[0].replace('width="22" height="22"','width="40" height="40"')}</div><h4 class="mt16">${x[1]}</h4><div class="d">${x[2]}</div></a>`).join('')}</div>
+  <div id="satBox"></div>
+  <h2 class="h2 mt40" style="padding-top:20px">Preguntas frecuentes</h2><div class="acc" style="margin-top:20px">${faq.map(f=>`<details><summary>${f[0]}</summary><div class="ab">${f[1]}</div></details>`).join('')}</div>
+  <div class="note mt40">Atención a clínicas: lunes a viernes de 8:00 a 20:00 · Teléfono 900 123 456 · soporte@confortdent.es</div></div>`;
+}
+function bindSupport(){
+  document.querySelectorAll('[data-sup="sat"],[data-sup="fin"]').forEach(a=>a.onclick=(e)=>{ e.preventDefault(); const sat = a.dataset.sup==='sat';
+    $('#satBox').innerHTML = `<div class="buybox mt24 fade-in"><div style="font-size:21px;font-weight:600">${sat?'Solicitar asistencia técnica':'Estudio de financiación'}</div><div class="formgrid mt16"><div><label class="lab">Clínica</label><input class="input" id="sb1"></div><div><label class="lab">Correo electrónico</label><input class="input" id="sb2"></div>${sat?`<div><label class="lab">Nº de serie del sillón</label><input class="input" id="sb3" placeholder="CD-XXXX-XXXX"></div><div><label class="lab">Urgencia</label><select class="input" id="sb4"><option>Normal</option><option>Alta: equipo parado</option></select></div><div class="full"><label class="lab">Describe la incidencia</label><textarea class="input" rows="3" id="sb5"></textarea></div>`:`<div class="full"><label class="lab">Importe aproximado</label><input class="input" id="sb3" placeholder="Ej. 20.000 €"></div>`}</div><div class="errmsg" id="sbErr" style="display:none">Completa la clínica y un correo válido.</div><button class="btn block mt16" id="sbGo">Enviar solicitud</button></div>`;
+    $('#sbGo').onclick = ()=>{ const c=$('#sb1').value.trim(), m=$('#sb2').value.trim(); if(!c||!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(m)){ $('#sbErr').style.display='block'; return; }
+      const n = (sat?'SAT-':'FIN-') + Math.floor(100000+Math.random()*899999);
+      $('#satBox').innerHTML = `<div class="buybox mt24 center fade-in"><div style="font-size:21px;font-weight:600">Solicitud ${n} registrada</div><p class="grey mt8">${sat?'Un técnico te contactará en las próximas horas para coordinar la visita.':'Nuestro equipo financiero te enviará una propuesta en 24 h laborables.'} Te hemos escrito a ${esc(m)}.</p></div>`; };
+    $('#satBox').scrollIntoView({behavior:'smooth', block:'center'}); });
+}
+function page404(){ return `<div class="empty"><h1 class="big" style="font-size:40px">No encontramos esta página.</h1><div class="mt24"><a class="btn" href="#tienda">Ir a la tienda</a></div></div>`; }
+
+/* ===================== router ===================== */
+let lastRoute = null;
+function render(keepScroll){
+  const h = decodeURIComponent(location.hash.slice(1)) || 'inicio';
+  const y = window.scrollY;
+  let html, bind = ()=>{};
+  if(h==='inicio') html = pageHome();
+  else if(h==='tienda') html = pageStore();
+  else if(h.startsWith('c-')){ const id=h.slice(2); html = pageCat(id); bind = ()=>bindCat(id); }
+  else if(h.startsWith('p-')){ const id=h.slice(2); html = pageProduct(id); bind = ()=>bindProduct(id); }
+  else if(h.startsWith('configurar')){ const k = h.split('-')[1]; if(k && RANGES[k] && lastRoute!==h && !keepScroll){ cfg.range = k; if(k!=='essential') cfg.pedal='std'; } html = pageConfig(); bind = bindConfig; }
+  else if(h==='bandeja-a-medida'){ html = pageTray(); bind = bindTray; }
+  else if(h==='comparar') html = pageCompare();
+  else if(h==='bolsa'){ html = pageBag(); bind = bindBag; }
+  else if(h==='pago'){ html = pageCheckout(); bind = bindCheckout; }
+  else if(h==='pedido') html = pageOrder();
+  else if(h==='reciclate'){ html = pageRecycle(); bind = bindRecycle; }
+  else if(h==='experiencias'){ html = pageExp(); bind = bindExp; }
+  else if(h==='soporte'){ html = pageSupport(); bind = bindSupport; }
+  else html = page404();
+  app.innerHTML = html; bind();
+  document.querySelectorAll('.gnav a.nl').forEach(a=>a.classList.toggle('on', a.dataset.n===h));
+  $('#mnav').classList.remove('open'); $('#bagPop').classList.remove('open');
+  if(keepScroll) window.scrollTo(0, y); else if(lastRoute!==h) window.scrollTo(0,0);
+  lastRoute = h;
+}
+window.addEventListener('hashchange', ()=>render());
+renderBadge(); render();
+</script>
+</body>
+</html>
